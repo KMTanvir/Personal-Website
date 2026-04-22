@@ -18,12 +18,14 @@
 
   function applyTheme(t) {
     root.setAttribute('data-theme', t);
-    const btn = document.querySelector('[data-theme-toggle]');
-    if (btn) {
+    document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
       btn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
-      btn.querySelector('.sun').style.display = t === 'dark' ? 'none' : 'inline';
-      btn.querySelector('.moon').style.display = t === 'dark' ? 'inline' : 'none';
-    }
+      // Label shows the mode you'll switch TO (inverse of current)
+      const toDark  = btn.querySelector('.mode-label-dark');   // shown when current = light
+      const toLight = btn.querySelector('.mode-label-light');  // shown when current = dark
+      if (toDark)  toDark.style.display  = t === 'dark' ? 'none'   : 'inline';
+      if (toLight) toLight.style.display = t === 'dark' ? 'inline' : 'none';
+    });
   }
 
   function initTheme() {
@@ -149,7 +151,7 @@
     { title: 'Home',            meta: 'Page',         url: 'index.html' },
     { title: 'About',           meta: 'Page',         url: 'about.html' },
     { title: 'Research',        meta: 'Page',         url: 'research.html' },
-    { title: 'Publications',    meta: 'Page',         url: 'publications.html' },
+    { title: 'Publications',    meta: 'Research · full list', url: 'research.html#publications' },
     { title: 'Teaching',        meta: 'Page',         url: 'teaching.html' },
     { title: 'Statistical Talks', meta: 'Page',       url: 'talks.html' },
     { title: 'Awards',          meta: 'Page',         url: 'awards.html' },
@@ -157,14 +159,13 @@
     { title: 'Clinical trials methodology', meta: 'Research focus', url: 'research.html#interests' },
     { title: 'Machine Learning for Health Systems', meta: 'Research focus', url: 'research.html#interests' },
     { title: 'Maternal and newborn health', meta: 'Research focus', url: 'research.html#interests' },
-    { title: 'Implementation research', meta: 'Research focus', url: 'research.html#interests' },
     { title: 'Research grants', meta: 'Funded projects', url: 'research.html#grants' },
     { title: 'Education',       meta: 'About',        url: 'about.html#education' },
     { title: 'Experience',      meta: 'About',        url: 'about.html#experience' },
     { title: 'Additional crossovers in cluster randomised crossover trials do not always increase statistical power', meta: 'Clinical Trials · 2026', url: 'https://doi.org/10.1177/17407745261431140' },
     { title: 'Testing a reusable chemical warming pad and insulating jacket for hypothermia in preterm and low birthweight neonates', meta: 'Scientific Reports · 2025', url: 'https://doi.org/10.1038/s41598-025-96275-1' },
     { title: 'Introducing a standardised register for strengthening inpatient management of newborns and sick children in Bangladesh', meta: 'Journal of Global Health · 2024', url: 'https://doi.org/10.7189/jogh.14.04086' },
-    { title: 'Lifestyle and environmental risk factors associated with cancer: a case control study in Bangladesh', meta: 'PLOS ONE · 2024', url: 'https://doi.org/10.1371/journal.pone.0328745' },
+    { title: 'Lifestyle and environmental risk factors associated with cancer: a case control study in Bangladesh', meta: 'PLOS ONE · 2026', url: 'https://doi.org/10.1371/journal.pone.0328745' },
   ];
 
   function initSearch() {

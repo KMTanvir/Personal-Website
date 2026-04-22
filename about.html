@@ -24,7 +24,6 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="research.html">Research</a></li>
-          <li><a href="publications.html">Publications</a></li>
           <li><a href="teaching.html">Teaching</a></li>
           <li><a href="talks.html">Talks</a></li>
           <li><a href="awards.html">Awards</a></li>
@@ -35,9 +34,9 @@
         <button class="icon-btn" data-search-open aria-label="Search" title="Search (Ctrl/Cmd + K)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
         </button>
-        <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
-          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <button class="mode-toggle" data-theme-toggle aria-label="Toggle theme" aria-pressed="false" title="Toggle theme">
+          <span class="mode-label-dark">Dark Mode</span>
+          <span class="mode-label-light" style="display:none">Light Mode</span>
         </button>
         <button class="icon-btn menu-btn" data-drawer-open aria-label="Open menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -71,7 +70,6 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="research.html">Research</a></li>
-        <li><a href="publications.html">Publications</a></li>
         <li><a href="teaching.html">Teaching</a></li>
         <li><a href="talks.html">Talks</a></li>
         <li><a href="awards.html">Awards</a></li>
@@ -80,32 +78,15 @@
     </nav>
   </div>
 
-  <!-- Page header -->
-  <section class="hero" style="padding-top:clamp(56px,7vw,96px);padding-bottom:clamp(36px,5vw,56px)">
-    <div class="container reveal" style="max-width:760px">
-      <span class="eyebrow">About</span>
-      <h1 class="hero-title" style="font-size:clamp(2rem,3.6vw,3rem)">A lecturer and researcher in applied statistics</h1>
-      <p class="hero-lead">A short introduction to who I am, how I got here, and the work I care about.</p>
-    </div>
-  </section>
-
   <!-- Bio -->
-  <section style="padding-top:clamp(24px,4vw,48px)">
+  <section style="padding-top:clamp(72px,9vw,120px)">
     <div class="container" style="display:grid;grid-template-columns:1fr;gap:40px">
-      <div class="reveal" style="max-width:68ch">
+      <div class="reveal" style="max-width:72ch">
         <h2 class="section-title">Hello, I'm Tanvir.</h2>
-        <p>
-          I'm a <strong>Lecturer in Applied Statistics and Data Science at the University of Dhaka</strong>. I currently teach <em>Econometric Methods</em>, <em>SQL for Data Science</em>, and <em>Statistical Computing&nbsp;I</em> — which includes Experimental Design and Demography. In previous semesters I taught <em>Mathematical Foundations</em> and <em>Industrial Statistics &amp; Operations Research</em>.
-        </p>
-        <p>
-          I completed both my <strong>B.S.</strong> and <strong>M.S. in Applied Statistics</strong> from the University of Dhaka. Before joining academia full-time, I worked as a <strong>Statistical Officer at icddr,b</strong>, in the Maternal and Neonatal Child Health Division.
-        </p>
-        <p>
-          My research sits at the intersection of <strong>clinical trials</strong> and the <strong>application of machine learning in health sciences</strong>, with a particular focus on <strong>maternal and newborn health</strong>. I have successfully completed two funded research projects, supported by <strong>Global Affairs Canada</strong> and the <strong>University Grants Commission (UGC), Bangladesh</strong>.
-        </p>
-        <p>
-          I'm passionate about research and value scientific collaboration. If our interests intersect — on a trial, a methodology paper, or a teaching collaboration — I'd be glad to hear from you.
-        </p>
+        <p>I am a Lecturer in Applied Statistics and Data Science at the University of Dhaka. I teach courses including Econometric Methods, SQL for Data Science, and Statistical Computing I, which covers Experimental Design and Demography. Previously, I have also taught Mathematical Foundations and Industrial Statistics &amp; Operations Research.</p>
+        <p>I completed my B.S. and M.S. in Applied Statistics at the University of Dhaka. Before joining academia, I worked as a Statistical Officer at icddr,b in the Maternal and Neonatal Child Health Division.</p>
+        <p>My research focuses on clinical trial methodology and the application of machine learning in health sciences, with a particular emphasis on maternal and newborn health. I have completed two funded research projects supported by Global Affairs Canada and the University Grants Commission, Bangladesh.</p>
+        <p>I am passionate about research and value scientific collaboration.</p>
         <div class="flex gap-2 mt-2" style="flex-wrap:wrap">
           <a class="btn btn-primary" href="research.html">See my research</a>
           <a class="btn btn-outline" href="contact.html">Contact me</a>
@@ -120,7 +101,7 @@
       <div class="reveal">
         <span class="eyebrow">Education</span>
         <h2 class="section-title">Academic background</h2>
-        <p class="section-lead">Training in applied statistics at one of Bangladesh's leading institutions.</p>
+        <p class="section-lead">Formal training in applied statistics at the University of Dhaka.</p>
       </div>
       <div class="reveal">
         <ol class="timeline" style="list-style:none;padding-left:28px;margin:0">
@@ -128,13 +109,13 @@
             <span class="when">2021</span>
             <h3>M.S. in Applied Statistics</h3>
             <p class="where">Institute of Statistical Research and Training (ISRT), University of Dhaka</p>
-            <p>Advanced coursework in biostatistics, statistical inference, and applied data analysis; thesis focused on applied biostatistical methods.</p>
+            <p>Advanced coursework included Bayesian statistics, causal inference, machine learning, and longitudinal data analysis.</p>
           </li>
           <li class="timeline-item">
             <span class="when">2020</span>
             <h3>B.S. in Applied Statistics</h3>
             <p class="where">Institute of Statistical Research and Training (ISRT), University of Dhaka</p>
-            <p>Core training in probability, inference, experimental design, and statistical computing.</p>
+            <p>Foundational coursework in probability, statistical inference, experimental design, and statistical computing.</p>
           </li>
         </ol>
       </div>
@@ -147,7 +128,7 @@
       <div class="reveal">
         <span class="eyebrow">Experience</span>
         <h2 class="section-title">Professional journey</h2>
-        <p class="section-lead">From teaching fellow to full-time academic — a path shaped by research, teaching, and public-health practice.</p>
+        <p class="section-lead">From teaching fellow to full time academic, a path shaped by research, teaching, and public health practice.</p>
       </div>
       <div class="reveal">
         <ol class="timeline" style="list-style:none;padding-left:28px;margin:0">
@@ -155,13 +136,13 @@
             <span class="when">Oct 2023 — Present</span>
             <h3>Lecturer, Applied Statistics &amp; Data Science</h3>
             <p class="where">University of Dhaka</p>
-            <p>Teaching undergraduate and graduate courses; supervising student research; contributing to departmental and research activities at ISRT.</p>
+            <p>Teaching undergraduate and graduate courses, supervising student research, and contributing to departmental and research activities at ISRT.</p>
           </li>
           <li class="timeline-item">
             <span class="when">Oct 2022 — Sep 2023</span>
             <h3>Statistical Officer</h3>
             <p class="where">Maternal and Neonatal Child Health Division, icddr,b</p>
-            <p>Designed and executed statistical analyses for implementation-research studies; collaborated with clinicians and epidemiologists on maternal and newborn health programmes.</p>
+            <p>Designed and executed statistical analyses for implementation research studies, and collaborated with clinicians and epidemiologists on maternal and newborn health programmes.</p>
           </li>
           <li class="timeline-item">
             <span class="when">Sep 2021 — Aug 2022</span>
@@ -173,7 +154,7 @@
             <span class="when">Dec 2019 — Aug 2022</span>
             <h3>Teaching Fellow, Statistics</h3>
             <p class="where">10 Minute School</p>
-            <p>Designed and delivered statistics content for a national audience; produced teaching materials reaching thousands of learners.</p>
+            <p>Designed and delivered statistics content for a national audience, and produced teaching materials reaching thousands of learners.</p>
           </li>
         </ol>
       </div>
@@ -190,8 +171,8 @@
       <div class="stats">
         <div class="stat reveal"><div class="num">2</div><div class="lbl">Funded projects</div></div>
         <div class="stat reveal"><div class="num">7+</div><div class="lbl">Courses taught</div></div>
-        <div class="stat reveal"><div class="num">15+</div><div class="lbl">Peer-reviewed papers</div></div>
-        <div class="stat reveal"><div class="num">5+</div><div class="lbl">Invited talks</div></div>
+        <div class="stat reveal"><div class="num">15+</div><div class="lbl">Peer reviewed papers</div></div>
+        <div class="stat reveal"><div class="num">8+</div><div class="lbl">Invited talks</div></div>
       </div>
     </div>
   </section>
@@ -201,11 +182,10 @@
     <div class="container reveal" style="display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;">
       <div>
         <h2 style="margin-bottom:6px">Looking for my full CV?</h2>
-        <p style="margin:0;color:var(--text-muted);max-width:60ch">A consolidated PDF is available on request, or explore my Google Scholar and ORCID for a live record of publications.</p>
+        <p style="margin:0;color:var(--text-muted);max-width:60ch">A consolidated PDF is available on request. Feel free to reach out over email.</p>
       </div>
       <div class="flex gap-2" style="flex-wrap:wrap">
         <a class="btn btn-primary" href="contact.html">Request CV</a>
-        <a class="btn btn-outline" href="https://scholar.google.com/citations?user=BQIZmwIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
       </div>
     </div>
   </section>
@@ -230,7 +210,6 @@
         <ul>
           <li><a href="about.html">About</a></li>
           <li><a href="research.html">Research</a></li>
-          <li><a href="publications.html">Publications</a></li>
           <li><a href="teaching.html">Teaching</a></li>
           <li><a href="talks.html">Talks</a></li>
           <li><a href="awards.html">Awards</a></li>

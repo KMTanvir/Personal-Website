@@ -39,7 +39,6 @@
     .talk-body h3 { font-size: 1.15rem; margin: 0; font-family: var(--font-serif); }
     .talk-venue { color: var(--text-muted); font-size: .95rem; font-style: italic; }
     .talk-city { color: var(--text-soft); font-size: .85rem; letter-spacing: .04em; }
-    .talk-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
     .venue-strip {
       display: grid; gap: 12px;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -70,7 +69,6 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="research.html">Research</a></li>
-          <li><a href="publications.html">Publications</a></li>
           <li><a href="teaching.html">Teaching</a></li>
           <li><a href="talks.html">Talks</a></li>
           <li><a href="awards.html">Awards</a></li>
@@ -81,35 +79,23 @@
         <button class="icon-btn" data-search-open aria-label="Search" title="Search (Ctrl/Cmd + K)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
         </button>
-        <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
-          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <button class="mode-toggle" data-theme-toggle aria-label="Toggle theme" aria-pressed="false" title="Toggle theme">
+          <span class="mode-label-dark">Dark Mode</span>
+          <span class="mode-label-light" style="display:none">Light Mode</span>
         </button>
         <button class="icon-btn menu-btn" data-drawer-open aria-label="Open menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Search overlay -->
-  <div class="search-overlay" role="dialog" aria-label="Search" aria-modal="true">
-    <div class="search-panel">
-      <div class="search-input-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-        <input class="search-input" type="text" placeholder="Search pages, research, publications" aria-label="Search">
-        <button class="search-close" data-search-close type="button">Esc</button>
-      </div>
-      <div class="search-results"></div>
-    </div>
-  </div>
-
-  <!-- Mobile Drawer -->
-  <div class="drawer" aria-hidden="true">
+  <!-- Mobile drawer -->
+  <aside class="drawer" aria-hidden="true">
     <div class="drawer-top">
       <span class="brand"><span class="brand-mark">KMT</span> K.M. Tanvir</span>
       <button class="icon-btn" data-drawer-close aria-label="Close menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
     </div>
     <nav aria-label="Mobile">
@@ -117,31 +103,34 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="research.html">Research</a></li>
-        <li><a href="publications.html">Publications</a></li>
         <li><a href="teaching.html">Teaching</a></li>
         <li><a href="talks.html">Talks</a></li>
         <li><a href="awards.html">Awards</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+  </aside>
+
+  <!-- Search overlay -->
+  <div class="search-overlay" role="dialog" aria-modal="true" aria-label="Site search">
+    <div class="search-panel">
+      <div class="search-head">
+        <input type="search" class="search-input" placeholder="Search the site…" aria-label="Search the site">
+        <button class="icon-btn" data-search-close aria-label="Close search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <div class="search-results" role="listbox" aria-label="Search results"></div>
+      <div class="search-hint">Tip: press <kbd>Esc</kbd> to close · <kbd>Ctrl/Cmd</kbd> + <kbd>K</kbd> to open</div>
+    </div>
   </div>
 
-  <!-- Page header -->
-  <section class="hero" style="padding-top:clamp(56px,7vw,96px);padding-bottom:clamp(36px,5vw,56px)">
-    <div class="container reveal" style="max-width:780px">
-      <span class="eyebrow">Statistical Talks</span>
-      <h1 class="hero-title" style="font-size:clamp(2rem,3.6vw,3rem)">Invited sessions and workshops</h1>
-      <p class="hero-lead">A selection of guest talks and short workshops I have delivered at universities and research institutes across Bangladesh, covering applied statistics, study design, and modern data science tooling.</p>
-    </div>
-  </section>
-
   <!-- Talks list -->
-  <section id="talks" style="padding-top:clamp(24px,4vw,48px)">
+  <section id="talks" style="padding-top:clamp(72px,9vw,120px)">
     <div class="container">
       <div class="reveal">
         <span class="eyebrow">Sessions delivered</span>
         <h2 class="section-title">Recent talks</h2>
-        <p class="section-lead">Each session is built around a practical, hands on demonstration suited to the host audience.</p>
       </div>
 
       <div class="grid" style="gap:20px">
@@ -153,11 +142,6 @@
             <div class="talk-venue">Shahjalal University of Science and Technology</div>
             <div class="talk-city">Sylhet, Bangladesh</div>
             <p style="color:var(--text-muted);margin:4px 0 0">Principles of effective visual communication, moving from default charts to publication ready graphics with ggplot2 and modern tidy workflows.</p>
-            <div class="talk-tags">
-              <span class="pill">Data visualisation</span>
-              <span class="pill">ggplot2</span>
-              <span class="pill">Communication</span>
-            </div>
           </div>
         </article>
 
@@ -168,11 +152,6 @@
             <div class="talk-venue">Asian University for Women</div>
             <div class="talk-city">Chattogram, Bangladesh</div>
             <p style="color:var(--text-muted);margin:4px 0 0">Selecting appropriate methods for real datasets, with worked examples in regression diagnostics, categorical analysis, and reporting uncertainty.</p>
-            <div class="talk-tags">
-              <span class="pill">Applied statistics</span>
-              <span class="pill">Regression</span>
-              <span class="pill">Reproducibility</span>
-            </div>
           </div>
         </article>
 
@@ -183,11 +162,6 @@
             <div class="talk-venue">Jahangirnagar University</div>
             <div class="talk-city">Savar, Bangladesh</div>
             <p style="color:var(--text-muted);margin:4px 0 0">Stratified, cluster, and multi stage sampling in practice. How survey design choices propagate into variance estimates and policy relevant conclusions.</p>
-            <div class="talk-tags">
-              <span class="pill">Survey sampling</span>
-              <span class="pill">Design effects</span>
-              <span class="pill">Weighting</span>
-            </div>
           </div>
         </article>
 
@@ -198,11 +172,6 @@
             <div class="talk-venue">International Centre for Diarrhoeal Disease Research, Bangladesh (icddr,b)</div>
             <div class="talk-city">Dhaka, Bangladesh</div>
             <p style="color:var(--text-muted);margin:4px 0 0">A side by side, hands on session for health researchers: cleaning routine data, running common models, and producing reproducible outputs in both R and Stata.</p>
-            <div class="talk-tags">
-              <span class="pill">R</span>
-              <span class="pill">Stata</span>
-              <span class="pill">Applied workflow</span>
-            </div>
           </div>
         </article>
 
@@ -213,11 +182,36 @@
             <div class="talk-venue">Bangabandhu Sheikh Mujib Medical University</div>
             <div class="talk-city">Dhaka, Bangladesh</div>
             <p style="color:var(--text-muted);margin:4px 0 0">Recent developments and practical choices in GLMs for clinical and epidemiological data, including link function selection, overdispersion, and model checking.</p>
-            <div class="talk-tags">
-              <span class="pill">GLM</span>
-              <span class="pill">Clinical data</span>
-              <span class="pill">Model checking</span>
-            </div>
+          </div>
+        </article>
+
+        <article class="talk reveal">
+          <div class="talk-index">06</div>
+          <div class="talk-body">
+            <h3>Data Analysis using Python</h3>
+            <div class="talk-venue">National Academy for Defence Administration (NADA)</div>
+            <div class="talk-city">Mirpur, Dhaka, Bangladesh</div>
+            <p style="color:var(--text-muted);margin:4px 0 0">A practical introduction to Python for data analysis — NumPy, pandas, and visualisation — tailored for officers working with administrative and operational data.</p>
+          </div>
+        </article>
+
+        <article class="talk reveal">
+          <div class="talk-index">07</div>
+          <div class="talk-body">
+            <h3>Data Analysis using SPSS</h3>
+            <div class="talk-venue">National Defence College (NDC)</div>
+            <div class="talk-city">Mirpur, Dhaka, Bangladesh</div>
+            <p style="color:var(--text-muted);margin:4px 0 0">An applied workshop on SPSS for survey and policy data: descriptive summaries, cross tabulation, significance testing, and reproducible reporting for senior course participants.</p>
+          </div>
+        </article>
+
+        <article class="talk reveal">
+          <div class="talk-index">08</div>
+          <div class="talk-body">
+            <h3>Data Analysis using SPSS</h3>
+            <div class="talk-venue">Bangladesh University of Professionals (BUP)</div>
+            <div class="talk-city">Mirpur, Dhaka, Bangladesh</div>
+            <p style="color:var(--text-muted);margin:4px 0 0">A hands on SPSS session for graduate students and researchers, focused on turning raw survey responses into defensible, well presented findings.</p>
           </div>
         </article>
 
@@ -231,7 +225,6 @@
       <div class="reveal">
         <span class="eyebrow">Host institutions</span>
         <h2 class="section-title">Places I have spoken</h2>
-        <p class="section-lead">Grateful to the departments and teams who hosted these sessions.</p>
       </div>
       <div class="venue-strip reveal">
         <div class="venue-chip">Shahjalal University of Science and Technology</div>
@@ -239,6 +232,9 @@
         <div class="venue-chip">Jahangirnagar University</div>
         <div class="venue-chip">icddr,b</div>
         <div class="venue-chip">Bangabandhu Sheikh Mujib Medical University</div>
+        <div class="venue-chip">National Academy for Defence Administration</div>
+        <div class="venue-chip">National Defence College</div>
+        <div class="venue-chip">Bangladesh University of Professionals</div>
       </div>
     </div>
   </section>
@@ -248,11 +244,10 @@
     <div class="container reveal" style="display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;">
       <div>
         <h2 style="margin-bottom:6px">Invite me to speak</h2>
-        <p style="margin:0;color:var(--text-muted);max-width:60ch">I am open to guest lectures, short workshops, and departmental sessions on applied statistics, trial methodology, and data science for health research.</p>
+        <p style="margin:0;color:var(--text-muted);max-width:60ch">I am open to guest lectures, short workshops, and departmental sessions.</p>
       </div>
       <div class="flex gap-2" style="flex-wrap:wrap">
         <a class="btn btn-primary" href="contact.html">Get in touch</a>
-        <a class="btn btn-outline" href="research.html">See research</a>
       </div>
     </div>
   </section>
@@ -277,7 +272,6 @@
         <ul>
           <li><a href="about.html">About</a></li>
           <li><a href="research.html">Research</a></li>
-          <li><a href="publications.html">Publications</a></li>
           <li><a href="teaching.html">Teaching</a></li>
           <li><a href="talks.html">Talks</a></li>
           <li><a href="awards.html">Awards</a></li>

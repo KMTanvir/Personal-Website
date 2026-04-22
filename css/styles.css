@@ -189,6 +189,30 @@ section + section { border-top: 1px solid var(--border); }
 .icon-btn:active { transform: scale(.96); }
 .icon-btn svg { width: 18px; height: 18px; }
 
+/* Text-label theme toggle */
+.mode-toggle {
+  width: auto;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  color: var(--text);
+  font: 600 .82rem var(--font-sans);
+  letter-spacing: .01em;
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+}
+.mode-toggle:hover {
+  background: var(--primary-50);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.mode-toggle:active { transform: scale(.96); }
+.mode-toggle .mode-label-light,
+.mode-toggle .mode-label-dark { white-space: nowrap; }
+
 .menu-btn { display: inline-flex; }
 @media (min-width: 880px) {
   .nav-links { display: flex; }
