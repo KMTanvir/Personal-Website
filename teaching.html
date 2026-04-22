@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teaching — K.M. Tanvir</title>
+  <meta name="description" content="Courses taught by K.M. Tanvir at ISRT, University of Dhaka — Econometric Methods, SQL for Data Science, Statistical Computing, and more.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Teaching page specific helpers */
+    .course-section { display: grid; gap: 10px; }
+    .course-section h4 {
+      font-family: var(--font-sans);
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin: 6px 0 2px;
+    }
+    .res-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .res-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 12px; border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text-muted);
+      font: 500 .84rem var(--font-sans);
+      text-decoration: none;
+      transition: all .18s var(--ease);
+    }
+    .res-link:hover {
+      color: var(--primary); border-color: var(--primary);
+      background: var(--primary-50);
+    }
+    .res-link svg { width: 13px; height: 13px; opacity: .8; }
+    .course { padding: 30px; }
+    @media (min-width: 860px) { .course { padding: 34px; } }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="K.M. Tanvir — Home">
+        <span class="brand-mark">KMT</span>
+        <span>K.M. Tanvir</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="talks.html">Talks</a></li>
+          <li><a href="awards.html">Awards</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-tools">
+        <button class="icon-btn" data-search-open aria-label="Search" title="Search (Ctrl/Cmd + K)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
+        <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" data-drawer-open aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search overlay -->
+  <div class="search-overlay" role="dialog" aria-label="Search" aria-modal="true">
+    <div class="search-panel">
+      <div class="search-input-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input class="search-input" type="text" placeholder="Search pages, research, publications" aria-label="Search">
+        <button class="search-close" data-search-close type="button">Esc</button>
+      </div>
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer" aria-hidden="true">
+    <div class="drawer-top">
+      <span class="brand"><span class="brand-mark">KMT</span> K.M. Tanvir</span>
+      <button class="icon-btn" data-drawer-close aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="talks.html">Talks</a></li>
+        <li><a href="awards.html">Awards</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Page header -->
+  <section class="hero" style="padding-top:clamp(56px,7vw,96px);padding-bottom:clamp(36px,5vw,56px)">
+    <div class="container reveal" style="max-width:780px">
+      <span class="eyebrow">Teaching</span>
+      <h1 class="hero-title" style="font-size:clamp(2rem,3.6vw,3rem)">Learning together, growing together</h1>
+      <p class="hero-lead">Courses I teach at the Institute of Statistical Research and Training (ISRT), University of Dhaka. Each course page collects the syllabus, textbooks, and weekly materials I share with students.</p>
+    </div>
+  </section>
+
+  <!-- Currently teaching -->
+  <section id="current" style="padding-top:clamp(24px,4vw,48px)">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Currently teaching</span>
+        <h2 class="section-title">This term</h2>
+        <p class="section-lead">Undergraduate courses offered at ISRT in the current academic session.</p>
+      </div>
+
+      <div class="grid" style="gap:24px">
+
+        <!-- Econometric Methods -->
+        <article class="course reveal">
+          <div class="course-meta">
+            <span class="course-code">Econometric Methods</span>
+            <span class="course-semester">Batch 29 · ISRT</span>
+          </div>
+          <h3>Econometric Methods</h3>
+          <p style="color:var(--text-muted)">Foundations of regression, specification, and inference with an applied econometrics lens. The chapter readings follow the standard undergraduate text, supplemented with motivation notes and worked solutions.</p>
+
+          <div class="course-section">
+            <h4>Syllabus and textbook</h4>
+            <div class="res-row">
+              <a class="res-link" href="https://drive.google.com/file/d/120X4_3IkSjN1gNt6cGUo02unjHfIPzIY/view?usp=sharing" target="_blank" rel="noopener">Course outline</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1bDvkg4vErWuusEqCUyM_oE3RmLRz7Ry9/view?usp=sharing" target="_blank" rel="noopener">Textbook</a>
+              <a class="res-link" href="https://drive.google.com/file/d/15vtN4SzkAZmRxlCIL2-XYOonpIIxHq66/view?usp=sharing" target="_blank" rel="noopener">Solutions manual</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1-BrUgTyLnN5XRHhI0G4s7Ua0kHf_TrZh/view?usp=sharing" target="_blank" rel="noopener">Motivation</a>
+            </div>
+          </div>
+
+          <div class="course-section">
+            <h4>Chapter notes</h4>
+            <div class="res-row">
+              <a class="res-link" href="https://drive.google.com/file/d/1h1kOMATpq5udG50CjDzcnJFiGF0sZgp0/view?usp=sharing" target="_blank" rel="noopener">Ch 13</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1lnL9ERzq2IxCS9CuJflAfdPCB4VXzMI0/view?usp=sharing" target="_blank" rel="noopener">Ch 15</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1mGzApfmYtH5WFl4vHb1QE6MBqGgIOPqD/view?usp=sharing" target="_blank" rel="noopener">Ch 16</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1TyHPmGLya09n7QRCkZtCHcfC7OgSyXF6/view?usp=sharing" target="_blank" rel="noopener">Ch 17</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1DcychWQIcfK0as5nw0PlXIlBzyjUw6E6/view?usp=sharing" target="_blank" rel="noopener">Ch 18</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1wgdjCmfxpSTJMrdYDhYvQy1OXq4EkW9L/view?usp=sharing" target="_blank" rel="noopener">Ch 19</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1bPIY8mXgQFmYvVlEqwZFSoV-lOPKX_Rv/view?usp=sharing" target="_blank" rel="noopener">Ch 20</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1zmGuD07e1sqZ03g9rtZySk2BbX4FB5ED/view?usp=sharing" target="_blank" rel="noopener">Ch 22</a>
+            </div>
+          </div>
+
+          <div class="course-footer">
+            <span class="pill">Regression</span>
+            <span class="pill">Specification</span>
+            <span class="pill">Applied inference</span>
+          </div>
+        </article>
+
+        <!-- SQL for Data Science -->
+        <article class="course reveal">
+          <div class="course-meta">
+            <span class="course-code">SQL for Data Science</span>
+            <span class="course-semester">Batch 31 · ISRT</span>
+          </div>
+          <h3>SQL for Data Science</h3>
+          <p style="color:var(--text-muted)">A hands on introduction to relational databases, table design, and analytical SQL. We build from schema fundamentals to writing queries that answer real research questions, using the Sakila sample database and class exercises.</p>
+
+          <div class="course-section">
+            <h4>Syllabus and textbook</h4>
+            <div class="res-row">
+              <a class="res-link" href="https://drive.google.com/file/d/15L9R8zcEoBSrIS9jfR7tnmMAzSocctXB/view?usp=sharing" target="_blank" rel="noopener">Course outline</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1PAJU9RRhHnbmlxFVrgzJe_AiUaJvyPJ6/view?usp=drive_link" target="_blank" rel="noopener">SQL textbook</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1O21pyHkPAgQKG3cLVkz4nR43KHcaeOBU/view?usp=sharing" target="_blank" rel="noopener">SQL intro</a>
+            </div>
+          </div>
+
+          <div class="course-section">
+            <h4>Tables and schema</h4>
+            <div class="res-row">
+              <a class="res-link" href="https://drive.google.com/file/d/1Tm2v7ijwXpSxWHX-uG8cSoSH8lcHagQR/view?usp=sharing" target="_blank" rel="noopener">Table slides</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1YLNkGH2GRuoTvU_uqFumINamL-CbIQQU/view?usp=sharing" target="_blank" rel="noopener">Table codes</a>
+              <a class="res-link" href="https://docs.google.com/document/d/1SE0RLG5X515MjcaJdPjDlLRsuDSSU0MnM1tjP4bTHyI/edit?usp=sharing" target="_blank" rel="noopener">Table exercise</a>
+            </div>
+          </div>
+
+          <div class="course-section">
+            <h4>Queries and analysis</h4>
+            <div class="res-row">
+              <a class="res-link" href="https://drive.google.com/file/d/12mgrpUVYXvrvNVM-ysDIYH6nb2M9Dhvl/view?usp=drive_link" target="_blank" rel="noopener">Query basics</a>
+              <a class="res-link" href="https://docs.google.com/document/d/1XUwHTnG2kgZdCbaLjj0W9EhlPx2rHFStXf2QhTNttwU/edit?usp=sharing" target="_blank" rel="noopener">Class exercise</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1N6PUBRDeU2eZXwB6qcZi3Ddtvwr2uok9/view?usp=drive_link" target="_blank" rel="noopener">Basic analysis</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1AwndwKUKaWeObRWQj0PqEegbYSBmxgwQ/view?usp=drive_link" target="_blank" rel="noopener">Advanced query</a>
+            </div>
+          </div>
+
+          <div class="course-footer">
+            <span class="pill">Relational databases</span>
+            <span class="pill">Analytical SQL</span>
+            <span class="pill">Sakila</span>
+          </div>
+        </article>
+
+        <!-- Statistical Computing I -->
+        <article class="course reveal">
+          <div class="course-meta">
+            <span class="course-code">Statistical Computing I</span>
+            <span class="course-semester">Batch 30 · ISRT</span>
+          </div>
+          <h3>Statistical Computing I</h3>
+          <p style="color:var(--text-muted)">A two part course covering experimental design (CRD, RCBD, Latin Square designs) and fundamentals of demography (fertility, mortality, and life tables). Students practise on real datasets using open statistical software.</p>
+
+          <div class="course-section">
+            <h4>Syllabus and textbooks</h4>
+            <div class="res-row">
+              <a class="res-link" href="https://drive.google.com/file/d/1g6AXGMSerFEla7loeqZYKzBWiq5yDeBE/view?usp=sharing" target="_blank" rel="noopener">Course outline</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1E8lrNHU20zPsa8_vdpNJOmKVxOY6fjoh/view?usp=drive_link" target="_blank" rel="noopener">Design of experiments book</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1FqBaRcWLK3pa9zvxB_AP8g4wuszNjOmq/view?usp=drive_link" target="_blank" rel="noopener">Demography book</a>
+              <a class="res-link" href="https://drive.google.com/drive/folders/1FSxPs834OQN0_PJPDfL6ryx5_3H9jMlK?usp=sharing" target="_blank" rel="noopener">Data</a>
+              <a class="res-link" href="https://drive.google.com/drive/folders/1d5Jm3wXy2y26sXuaL6i65T86CQFrWScM?usp=sharing" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+
+          <div class="course-section">
+            <h4>Demography</h4>
+            <div class="res-row">
+              <a class="res-link" href="https://drive.google.com/file/d/1Btw2FMFSh7ZM__1kw7-FLM4mDJwCSyJ8/view?usp=drive_link" target="_blank" rel="noopener">Basic measures</a>
+              <a class="res-link" href="https://drive.google.com/file/d/198sn1oxlG_NXS9sAMgx8bBDljApIMPfJ/view?usp=sharing" target="_blank" rel="noopener">Fertility</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1I95VGA7SK-R1hh7WumTFgqUVAQ3s9Iw2/view?usp=sharing" target="_blank" rel="noopener">Mortality</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1C1qyetzEmRhiWgpFYCNwf6SOgrrE5Iku/view?usp=sharing" target="_blank" rel="noopener">Life table</a>
+            </div>
+          </div>
+
+          <div class="course-section">
+            <h4>Experimental design</h4>
+            <div class="res-row">
+              <a class="res-link" href="https://drive.google.com/file/d/15v0hwDST2LbLC5lrYThka0_zd17Ci7Ua/view?usp=sharing" target="_blank" rel="noopener">Completely randomised design</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1njln2XHf6nGujIPbPlS2NcZffO1I6N5R/view?usp=sharing" target="_blank" rel="noopener">Randomised complete block design</a>
+              <a class="res-link" href="https://drive.google.com/file/d/17rmqxMudbtvuwWbR1uXHA7R_z-gprmQi/view?usp=sharing" target="_blank" rel="noopener">Latin square design</a>
+            </div>
+          </div>
+
+          <div class="course-footer">
+            <span class="pill">Experimental design</span>
+            <span class="pill">Demography</span>
+            <span class="pill">Applied computing</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Previously taught -->
+  <section id="previous" style="background:var(--bg-muted);border-top:1px solid var(--border)">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Previously taught</span>
+        <h2 class="section-title">Past courses</h2>
+        <p class="section-lead">Earlier courses I have taught at ISRT. Resources are preserved for student reference.</p>
+      </div>
+
+      <div class="grid cols-2" style="gap:24px">
+
+        <!-- Industrial Statistics and Operations Research -->
+        <article class="course reveal">
+          <div class="course-meta">
+            <span class="course-code">IS and OR</span>
+            <span class="course-semester">Batch 28 · ISRT</span>
+          </div>
+          <h3>Industrial Statistics and Operations Research</h3>
+          <p style="color:var(--text-muted)">Statistical quality control, reliability, and core operations research methods covering linear programming, transportation problems, and decision analysis.</p>
+
+          <div class="course-section">
+            <h4>Syllabus and textbooks</h4>
+            <div class="res-row">
+              <a class="res-link" href="https://drive.google.com/file/d/1NJJE1mLiNE6VZRwjCy28IZ6-t3XuSc6-/view?usp=sharing" target="_blank" rel="noopener">Course outline</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1vcKDzv71AzvZACYVRJJ_IP3ALDu6TyMv/view?usp=drive_link" target="_blank" rel="noopener">Industrial Statistics book</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1hQsRFGVK9qdq1aK_P6a2eSAXO9GEai2n/view?usp=drive_link" target="_blank" rel="noopener">Operations Research book</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1DGghW3UOU4BSzPkX3NX-mpEXCUqcYKX-/view?usp=sharing" target="_blank" rel="noopener">IS solutions</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1oqWul-hSfU0kknP_v7_s04H7jVVbiGfu/view?usp=drive_link" target="_blank" rel="noopener">Exercise set</a>
+            </div>
+          </div>
+
+          <div class="course-section">
+            <h4>Industrial Statistics lectures</h4>
+            <div class="res-row">
+              <a class="res-link" href="https://drive.google.com/file/d/1EPXomouCw8Ku0il1UpbzQFCyKcabaPPe/view?usp=sharing" target="_blank" rel="noopener">IS 1</a>
+              <a class="res-link" href="https://drive.google.com/file/d/13hB-8scx8Fqy1x8yczF8EhZHu_t0ovvU/view?usp=sharing" target="_blank" rel="noopener">IS 2</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1VrUafz3y40r3Um1tGIUpqGhJjQ6ZF5R3/view?usp=sharing" target="_blank" rel="noopener">IS 3</a>
+              <a class="res-link" href="https://drive.google.com/file/d/12iTF8GxfXbb3QX13lRw-u2N4Tuc5Dks-/view?usp=sharing" target="_blank" rel="noopener">IS 4</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1VCu_9SBOImw8NJ0VbTNvAmIufnvJH0mH/view?usp=sharing" target="_blank" rel="noopener">IS 5</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1Ru5byjHGmPaXo1h3I7pYSzGGsi-9TmBV/view?usp=sharing" target="_blank" rel="noopener">IS 6</a>
+            </div>
+          </div>
+
+          <div class="course-section">
+            <h4>Operations Research lectures</h4>
+            <div class="res-row">
+              <a class="res-link" href="https://drive.google.com/file/d/1gNRs9Xg04rRsAED3KtFBoixrH_BAdbvV/view?usp=drive_link" target="_blank" rel="noopener">OR 1</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1rA05E8CJOcyusDEMlvPsfITQszLd0Pdg/view?usp=sharing" target="_blank" rel="noopener">OR 2</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1yetAf0mhf2HMpn-UMG_kI4NmJyAFW6EL/view?usp=sharing" target="_blank" rel="noopener">OR 3</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1k2PhPZB7vpSsy4j9NVMuwMaTV2hzR12i/view?usp=sharing" target="_blank" rel="noopener">OR 4</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1WBuc8_2iLYAbw_ODUo_-bx11cMFnIjiX/view?usp=sharing" target="_blank" rel="noopener">OR 5</a>
+              <a class="res-link" href="https://drive.google.com/file/d/1U3RmX5OAI5A1p_bbgl91vmSjuRKInAu_/view?usp=sharing" target="_blank" rel="noopener">OR 6</a>
+            </div>
+          </div>
+
+          <div class="course-footer">
+            <span class="pill">Quality control</span>
+            <span class="pill">Linear programming</span>
+            <span class="pill">Decision analysis</span>
+          </div>
+        </article>
+
+        <!-- Mathematical Foundations -->
+        <article class="course reveal">
+          <div class="course-meta">
+            <span class="course-code">Mathematical Foundations</span>
+            <span class="course-semester">ISRT</span>
+          </div>
+          <h3>Mathematical Foundations</h3>
+          <p style="color:var(--text-muted)">An introductory course covering the mathematical prerequisites for applied statistics: functions, limits, differentiation, integration, linear algebra basics, and sequences, with problem solving emphasis for statistics majors.</p>
+
+          <div class="course-footer">
+            <span class="pill">Calculus</span>
+            <span class="pill">Linear algebra</span>
+            <span class="pill">Problem solving</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Extra resources -->
+  <section id="resources">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Resources for students</span>
+        <h2 class="section-title">Self study starter kit</h2>
+        <p class="section-lead">A small curated set of references I often share with students.</p>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <h3>Python for Data Analysis</h3>
+          <p>Wes McKinney's classic. The clearest practical introduction to pandas, NumPy, and data wrangling for students moving into applied work.</p>
+          <div class="course-footer">
+            <a class="res-link" href="https://wesmckinney.com/book/" target="_blank" rel="noopener">Book site</a>
+          </div>
+        </div>
+        <div class="card reveal">
+          <h3>JupyterLab online</h3>
+          <p>A zero install environment for running Python notebooks in the browser. Useful for following along with class demos from home.</p>
+          <div class="course-footer">
+            <a class="res-link" href="https://jupyter.org/try-jupyter/lab/" target="_blank" rel="noopener">Try JupyterLab</a>
+          </div>
+        </div>
+        <div class="card reveal">
+          <h3>Practice notebooks</h3>
+          <p>A shared folder of notebooks I have used across courses — short exercises with solutions, curated by topic.</p>
+          <div class="course-footer">
+            <a class="res-link" href="https://drive.google.com/drive/folders/1rHin5MlwgD6NUrUv5yCcnDL33PRNeqFj?usp=sharing" target="_blank" rel="noopener">Open folder</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section id="cta-office" style="background:var(--bg-muted);border-top:1px solid var(--border)">
+    <div class="container reveal" style="display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;">
+      <div>
+        <h2 style="margin-bottom:6px">Questions about a course?</h2>
+        <p style="margin:0;color:var(--text-muted);max-width:60ch">Current students are welcome to drop by office hours, or reach out over email for supervision, projects, or reading suggestions.</p>
+      </div>
+      <div class="flex gap-2" style="flex-wrap:wrap">
+        <a class="btn btn-primary" href="contact.html">Get in touch</a>
+        <a class="btn btn-outline" href="about.html">About me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <span class="brand" style="margin-bottom:10px"><span class="brand-mark">KMT</span> K.M. Tanvir</span>
+        <p style="max-width:48ch;margin-top:10px">Lecturer, Applied Statistics &amp; Data Science · Institute of Statistical Research and Training (ISRT), University of Dhaka.</p>
+        <div class="social-row" aria-label="Social links">
+          <a href="https://scholar.google.com/citations?user=BQIZmwIAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5zm0 2L3 11v5l9 5 9-5v-5l-9 5z"/></svg></a>
+          <a href="https://orcid.org/0000-0002-6106-2905" target="_blank" rel="noopener" aria-label="ORCID"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 8v8M8 8a1 1 0 1 0 0-.001M13 8h2a4 4 0 0 1 0 8h-2V8z"/></svg></a>
+          <a href="https://www.researchgate.net/profile/Km-Tanvir" target="_blank" rel="noopener" aria-label="ResearchGate"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 3H4.4A1.4 1.4 0 0 0 3 4.4v15.2A1.4 1.4 0 0 0 4.4 21h15.2a1.4 1.4 0 0 0 1.4-1.4V4.4A1.4 1.4 0 0 0 19.6 3zM9 16.2c-2.4 0-4.3-1.9-4.3-4.2S6.6 7.8 9 7.8c1.2 0 2.2.4 3 1.1l-1.2 1.2a2.7 2.7 0 0 0-1.8-.6c-1.6 0-2.8 1.2-2.8 2.7s1.2 2.7 2.8 2.7c1.4 0 2.3-.8 2.5-1.9H9v-1.6h4a5 5 0 0 1-4 4.8zM17.3 16h-1.9l-1.5-2.2h-.3V16h-1.7V8.1h2.5c1.7 0 2.6.8 2.6 2.2 0 1-.6 1.8-1.6 2l1.9 3.7z"/></svg></a>
+          <a href="https://www.linkedin.com/in/k-m-tanvir-16aa88148/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 5.9V21h-4v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+          <a href="https://www.facebook.com/tanvir067" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="mailto:kmtanvir@isrt.ac.bd" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="talks.html">Talks</a></li>
+          <li><a href="awards.html">Awards</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Profiles</h4>
+        <ul>
+          <li><a href="https://isrt.ac.bd/people/tanvir/" target="_blank" rel="noopener">ISRT profile</a></li>
+          <li><a href="https://www.du.ac.bd/faculty/faculty_details/ISR/63177" target="_blank" rel="noopener">University of Dhaka</a></li>
+          <li><a href="https://scholar.google.com/citations?user=BQIZmwIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+          <li><a href="https://orcid.org/0000-0002-6106-2905" target="_blank" rel="noopener">ORCID</a></li>
+          <li><a href="https://www.researchgate.net/profile/Km-Tanvir" target="_blank" rel="noopener">ResearchGate</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span data-year>2026</span> K.M. Tanvir. All rights reserved.</span>
+      <span>Built with HTML, CSS &amp; JS.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

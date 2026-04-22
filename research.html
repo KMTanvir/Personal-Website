@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research — K.M. Tanvir</title>
+  <meta name="description" content="Research interests of K.M. Tanvir: clinical trials methodology, machine learning in health sciences, and maternal & newborn health.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="K.M. Tanvir — Home">
+        <span class="brand-mark">KMT</span>
+        <span>K.M. Tanvir</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="talks.html">Talks</a></li>
+          <li><a href="awards.html">Awards</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-tools">
+        <button class="icon-btn" data-search-open aria-label="Search" title="Search (Ctrl/Cmd + K)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
+        <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" data-drawer-open aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search overlay -->
+  <div class="search-overlay" role="dialog" aria-label="Search" aria-modal="true">
+    <div class="search-panel">
+      <div class="search-input-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input class="search-input" type="text" placeholder="Search pages, research, publications" aria-label="Search">
+        <button class="search-close" data-search-close type="button">Esc</button>
+      </div>
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer" aria-hidden="true">
+    <div class="drawer-top">
+      <span class="brand"><span class="brand-mark">KMT</span> K.M. Tanvir</span>
+      <button class="icon-btn" data-drawer-close aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="talks.html">Talks</a></li>
+        <li><a href="awards.html">Awards</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Page header -->
+  <section class="hero" style="padding-top:clamp(56px,7vw,96px);padding-bottom:clamp(36px,5vw,56px)">
+    <div class="container reveal" style="max-width:760px">
+      <span class="eyebrow">Research</span>
+      <h1 class="hero-title" style="font-size:clamp(2rem,3.6vw,3rem)">Statistics in service of health and policy, from trial design to data driven analysis.</h1>
+      <p class="hero-lead">My research sits at the intersection of clinical trials methodology, machine learning for health systems, and maternal and newborn health. The aim is evidence that can inform policy and practice in Bangladesh and similar settings.</p>
+    </div>
+  </section>
+
+  <!-- Research interests / themes -->
+  <section id="interests" style="padding-top:clamp(24px,4vw,48px)">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Research Focus</span>
+        <h2 class="section-title">Core themes of my work</h2>
+        <p class="section-lead">The questions I keep coming back to.</p>
+      </div>
+      <div class="grid cols-3">
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4V4z"/><path d="M12 14v6M8 20h8"/></svg>
+          </div>
+          <span class="tag">Biostatistics</span>
+          <h3>Clinical Trials Methodology</h3>
+          <p>Design and analysis of cluster randomised and crossover trials, with a focus on statistical power and real world implementation.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4.5-9 4.5-9-4.5 9-4.5z"/><path d="M3 12l9 4.5 9-4.5M3 16.5l9 4.5 9-4.5"/></svg>
+          </div>
+          <span class="tag">Data science</span>
+          <h3>Machine Learning for Health Systems</h3>
+          <p>Applying machine learning to routine health data to address questions in epidemiology, health services, and implementation research.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <span class="tag">Public health</span>
+          <h3>Maternal and Newborn Health</h3>
+          <p>Research on PCOS, pregnancy complications, delivery related risk factors, and care for preterm and low birthweight newborns.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+          </div>
+          <span class="tag">Epidemiology</span>
+          <h3>Health Systems and COVID-19</h3>
+          <p>Division level analyses of service disruption and utilisation during COVID-19, including immunisation and maternal health services in Bangladesh.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <span class="tag">Implementation</span>
+          <h3>Implementation Research</h3>
+          <p>Studies on standardised registers and tools to strengthen inpatient management of newborns and sick children in real health facility settings.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></svg>
+          </div>
+          <span class="tag">Methods</span>
+          <h3>Applied Statistical Computing</h3>
+          <p>Hands on work in R, Stata, and Python for experimental design, generalised linear models, sampling, and modern data visualisation.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Funded projects -->
+  <section id="grants">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Funded projects</span>
+        <h2 class="section-title">Research grants</h2>
+        <p class="section-lead">Peer reviewed research in biostatistics, clinical trials, and global health.</p>
+      </div>
+
+      <div class="grid cols-2">
+        <article class="card reveal" style="padding:28px">
+          <span class="tag">Principal Investigator</span>
+          <h3 style="font-family:var(--font-serif);font-size:1.25rem">FertiMeter: a free of cost alternative to expensive diagnosis of Polycystic Ovarian Syndrome</h3>
+          <p style="color:var(--text-muted)">A PI led project developing and evaluating an accessible, low cost screening approach for PCOS, aimed at expanding diagnostic reach in low resource settings.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+            <span class="pill">PCOS screening</span>
+            <span class="pill">Diagnostic tools</span>
+            <span class="pill">Women's health</span>
+          </div>
+          <div style="margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);font-size:.9rem;color:var(--text-soft)">
+            <span class="me">Donor:</span> Department of Foreign Affairs, Trade and Development, Canada (Global Affairs Canada)
+          </div>
+        </article>
+
+        <article class="card reveal" style="padding:28px">
+          <span class="tag">Co-Principal Investigator</span>
+          <h3 style="font-family:var(--font-serif);font-size:1.25rem">Awareness of PCOS among early reproductive aged women to improve pregnancy outcomes in Bangladesh</h3>
+          <p style="color:var(--text-muted)">A Co-PI role on a nationally supported study raising awareness of PCOS to improve pregnancy outcomes, linking health systems research with maternal health.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+            <span class="pill">PCOS awareness</span>
+            <span class="pill">Pregnancy outcomes</span>
+            <span class="pill">Bangladesh</span>
+          </div>
+          <div style="margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);font-size:.9rem;color:var(--text-soft)">
+            <span class="me">Donor:</span> University Grants Commission (UGC), Bangladesh
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methods / tools strip -->
+  <section id="methods" style="background:var(--bg-muted);border-top:1px solid var(--border)">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Methods and tools</span>
+        <h2 class="section-title">How I work</h2>
+        <p class="section-lead">A pragmatic blend of classical statistics and modern data science.</p>
+      </div>
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <h3>Study design</h3>
+          <p>Cluster randomised and crossover trials, observational designs, case control studies, meta analysis, and advanced sampling.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Modelling</h3>
+          <p>Generalised linear models, longitudinal and mixed models, survival analysis, and machine learning for prediction.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Computing</h3>
+          <p>R, Stata, Python, SQL, reproducible pipelines, and modern data visualisation for communication and teaching.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent publications -->
+  <section id="recent">
+    <div class="container">
+      <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;">
+        <div>
+          <span class="eyebrow">Selected publications</span>
+          <h2 class="section-title">Highlights</h2>
+          <p class="section-lead">A quick view — the full list is on the Publications page.</p>
+        </div>
+        <a class="btn btn-outline" href="publications.html">See all publications</a>
+      </div>
+      <div class="grid cols-2">
+        <a class="card reveal" href="https://doi.org/10.1177/17407745261431140" target="_blank" rel="noopener">
+          <span class="tag">2026</span>
+          <h3>Additional crossovers in cluster randomised crossover trials do not always increase statistical power</h3>
+          <p><span class="me">Tanvir, K.</span>, Forbes, A., Grantham, K., &amp; Kasza, J.</p>
+          <p class="journal">Clinical Trials</p>
+        </a>
+        <a class="card reveal" href="https://doi.org/10.1038/s41598-025-96275-1" target="_blank" rel="noopener">
+          <span class="tag">2025</span>
+          <h3>Testing a reusable chemical warming pad and insulating jacket for hypothermia in preterm and low birthweight neonates</h3>
+          <p>Rahman, Q.S., <span class="me">Tanvir, K.</span>, Hoque, D.M.E., et al.</p>
+          <p class="journal">Scientific Reports</p>
+        </a>
+        <a class="card reveal" href="https://doi.org/10.7189/jogh.14.04086" target="_blank" rel="noopener">
+          <span class="tag">2024</span>
+          <h3>Introducing a standardised register for strengthening inpatient management of newborns and sick children in Bangladesh</h3>
+          <p>Ameen, S., Shafiq, S.S., <span class="me">Tanvir, K.</span>, et al.</p>
+          <p class="journal">Journal of Global Health</p>
+        </a>
+        <a class="card reveal" href="https://doi.org/10.1371/journal.pone.0328745" target="_blank" rel="noopener">
+          <span class="tag">2024</span>
+          <h3>Lifestyle and environmental risk factors associated with cancer: a case control study in Bangladesh</h3>
+          <p>Hossain, M.M., <span class="me">Tanvir, K.</span>, et al.</p>
+          <p class="journal">PLOS ONE</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-collab" style="border-top:none">
+    <div class="container reveal" style="display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;">
+      <div>
+        <h2 style="margin-bottom:6px">Let's collaborate</h2>
+        <p style="margin:0;color:var(--text-muted);max-width:60ch">Interested in collaboration in research or teaching? I would be glad to hear from you.</p>
+      </div>
+      <div class="flex gap-2" style="flex-wrap:wrap">
+        <a class="btn btn-primary" href="contact.html">Get in touch</a>
+        <a class="btn btn-outline" href="https://orcid.org/0000-0002-6106-2905" target="_blank" rel="noopener">ORCID</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <span class="brand" style="margin-bottom:10px"><span class="brand-mark">KMT</span> K.M. Tanvir</span>
+        <p style="max-width:48ch;margin-top:10px">Lecturer, Applied Statistics &amp; Data Science · Institute of Statistical Research and Training (ISRT), University of Dhaka.</p>
+        <div class="social-row" aria-label="Social links">
+          <a href="https://scholar.google.com/citations?user=BQIZmwIAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5zm0 2L3 11v5l9 5 9-5v-5l-9 5z"/></svg></a>
+          <a href="https://orcid.org/0000-0002-6106-2905" target="_blank" rel="noopener" aria-label="ORCID"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 8v8M8 8a1 1 0 1 0 0-.001M13 8h2a4 4 0 0 1 0 8h-2V8z"/></svg></a>
+          <a href="https://www.researchgate.net/profile/Km-Tanvir" target="_blank" rel="noopener" aria-label="ResearchGate"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 3H4.4A1.4 1.4 0 0 0 3 4.4v15.2A1.4 1.4 0 0 0 4.4 21h15.2a1.4 1.4 0 0 0 1.4-1.4V4.4A1.4 1.4 0 0 0 19.6 3zM9 16.2c-2.4 0-4.3-1.9-4.3-4.2S6.6 7.8 9 7.8c1.2 0 2.2.4 3 1.1l-1.2 1.2a2.7 2.7 0 0 0-1.8-.6c-1.6 0-2.8 1.2-2.8 2.7s1.2 2.7 2.8 2.7c1.4 0 2.3-.8 2.5-1.9H9v-1.6h4a5 5 0 0 1-4 4.8zM17.3 16h-1.9l-1.5-2.2h-.3V16h-1.7V8.1h2.5c1.7 0 2.6.8 2.6 2.2 0 1-.6 1.8-1.6 2l1.9 3.7z"/></svg></a>
+          <a href="https://www.linkedin.com/in/k-m-tanvir-16aa88148/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 5.9V21h-4v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+          <a href="https://www.facebook.com/tanvir067" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="mailto:kmtanvir@isrt.ac.bd" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="talks.html">Talks</a></li>
+          <li><a href="awards.html">Awards</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Profiles</h4>
+        <ul>
+          <li><a href="https://isrt.ac.bd/people/tanvir/" target="_blank" rel="noopener">ISRT profile</a></li>
+          <li><a href="https://www.du.ac.bd/faculty/faculty_details/ISR/63177" target="_blank" rel="noopener">University of Dhaka</a></li>
+          <li><a href="https://scholar.google.com/citations?user=BQIZmwIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+          <li><a href="https://orcid.org/0000-0002-6106-2905" target="_blank" rel="noopener">ORCID</a></li>
+          <li><a href="https://www.researchgate.net/profile/Km-Tanvir" target="_blank" rel="noopener">ResearchGate</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span data-year>2026</span> K.M. Tanvir. All rights reserved.</span>
+      <span>Built with HTML, CSS &amp; JS.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
