@@ -10,6 +10,72 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Publications list specific */
+    .year-head {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      margin: 28px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .pub { margin-bottom: 14px; }
+    .pub-card {
+      display: block;
+      position: relative;
+      padding: 22px 56px 22px 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-elev);
+      color: var(--text);
+      text-decoration: none;
+      transition: transform .2s var(--ease), border-color .2s var(--ease), box-shadow .2s var(--ease), background .2s var(--ease);
+    }
+    .pub-card::after {
+      content: "";
+      position: absolute;
+      top: 50%; right: 22px;
+      width: 18px; height: 18px;
+      margin-top: -9px;
+      background: currentColor;
+      opacity: .35;
+      -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M7 17L17 7M8 7h9v9'/></svg>") no-repeat center / contain;
+              mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M7 17L17 7M8 7h9v9'/></svg>") no-repeat center / contain;
+      transition: opacity .2s var(--ease), transform .2s var(--ease), color .2s var(--ease);
+    }
+    .pub-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+      color: var(--text);
+    }
+    .pub-card:hover::after {
+      opacity: 1;
+      color: var(--primary);
+      transform: translate(2px, -2px) translateY(-9px);
+    }
+    .pub-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 8px;
+      line-height: 1.4;
+    }
+    .pub-authors {
+      color: var(--text-muted);
+      font-size: .95rem;
+      margin: 0 0 8px;
+      line-height: 1.55;
+    }
+    .pub-journal {
+      margin: 0;
+      font-style: italic;
+      color: var(--text-soft);
+      font-size: .92rem;
+    }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -31,9 +97,6 @@
         </ul>
       </nav>
       <div class="nav-tools">
-        <button class="icon-btn" data-search-open aria-label="Search" title="Search (Ctrl/Cmd + K)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-        </button>
         <button class="mode-toggle" data-theme-toggle aria-label="Toggle theme" aria-pressed="false" title="Toggle theme">
           <span class="mode-label-dark">Dark Mode</span>
           <span class="mode-label-light" style="display:none">Light Mode</span>
@@ -65,20 +128,6 @@
       </ul>
     </nav>
   </aside>
-
-  <!-- Search overlay -->
-  <div class="search-overlay" role="dialog" aria-modal="true" aria-label="Site search">
-    <div class="search-panel">
-      <div class="search-head">
-        <input type="search" class="search-input" placeholder="Search the site…" aria-label="Search the site">
-        <button class="icon-btn" data-search-close aria-label="Close search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-        </button>
-      </div>
-      <div class="search-results" role="listbox" aria-label="Search results"></div>
-      <div class="search-hint">Tip: press <kbd>Esc</kbd> to close · <kbd>Ctrl/Cmd</kbd> + <kbd>K</kbd> to open</div>
-    </div>
-  </div>
 
   <!-- Research interests / themes -->
   <section id="interests" style="padding-top:clamp(72px,9vw,120px)">
@@ -127,7 +176,7 @@
         <article class="card reveal" style="padding:28px">
           <span class="tag">Principal Investigator</span>
           <h3 style="font-family:var(--font-serif);font-size:1.25rem">FertiMeter: a free of cost alternative to expensive diagnosis of Polycystic Ovarian Syndrome</h3>
-          <p style="color:var(--text-muted)">A PI led project developing and evaluating an accessible, low cost screening approach for PCOS, aimed at expanding diagnostic reach in low resource settings.</p>
+          <p style="color:var(--text-muted)">Principal Investigator on a project developing FertiMeter, a mobile application for machine learning&ndash;based screening of PCOS (86.1% predictive accuracy), designed to support early identification and improve access to diagnostic pathways in resource-constrained settings.</p>
           <div style="margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);font-size:.9rem;color:var(--text-soft)">
             <span class="me">Donor:</span> Department of Foreign Affairs, Trade and Development, Canada (Global Affairs Canada)
           </div>
@@ -136,35 +185,11 @@
         <article class="card reveal" style="padding:28px">
           <span class="tag">Co-Principal Investigator</span>
           <h3 style="font-family:var(--font-serif);font-size:1.25rem">Awareness Assessment of Polycystic Ovary Syndrome among early reproductive aged women in Bangladesh</h3>
-          <p style="color:var(--text-muted)">A Co-PI role on a nationally supported study raising awareness of PCOS to improve pregnancy outcomes, linking health systems research with maternal health.</p>
+          <p style="color:var(--text-muted)">Co-Principal Investigator on a nationally funded study examining awareness and perceptions of PCOS among young women in Bangladesh, identifying key determinants and informing targeted interventions to improve early recognition and care-seeking.</p>
           <div style="margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);font-size:.9rem;color:var(--text-soft)">
             <span class="me">Donor:</span> University Grants Commission (UGC), Bangladesh
           </div>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Methods / tools strip -->
-  <section id="methods" style="background:var(--bg-muted);border-top:1px solid var(--border)">
-    <div class="container">
-      <div class="reveal">
-        <span class="eyebrow">Methods and tools</span>
-        <h2 class="section-title">How I work</h2>
-      </div>
-      <div class="grid cols-3">
-        <div class="card reveal">
-          <h3>Study design</h3>
-          <p>Cluster randomised crossover trials, observational studies, case control studies, and meta analysis.</p>
-        </div>
-        <div class="card reveal">
-          <h3>Modelling</h3>
-          <p>Generalised linear models, longitudinal and mixed models, survival analysis, and machine learning for prediction.</p>
-        </div>
-        <div class="card reveal">
-          <h3>Computing</h3>
-          <p>R, Stata, Python, reproducible pipelines, and modern data visualisation.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -177,141 +202,97 @@
         <h2 class="section-title">Full publication list</h2>
       </div>
 
-      <!-- Toolbar -->
-      <div class="reveal" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:8px 0 18px">
-        <div class="search-wrap" style="flex:1;min-width:260px">
-          <input id="pub-search" class="search-input" type="search" placeholder="Search publications, authors, journals…" aria-label="Search publications">
-        </div>
-        <div class="chip-row" role="tablist" aria-label="Filter by year">
-          <button class="chip active" data-year="all">All</button>
-          <button class="chip" data-year="2026">2026</button>
-          <button class="chip" data-year="2025">2025</button>
-          <button class="chip" data-year="2024">2024</button>
-          <button class="chip" data-year="2023">2023</button>
-          <button class="chip" data-year="2022">2022</button>
-          <button class="chip" data-year="2021">2021</button>
-        </div>
-      </div>
-
       <!-- 2026 -->
-      <div class="pub-year-group reveal">
-        <h3 class="year-head">2026</h3>
-
-        <article class="pub" data-year="2026">
-          <a class="card" href="https://doi.org/10.1177/17407745261431140" target="_blank" rel="noopener">
-            <span class="tag">Clinical Trials</span>
-            <h4><span class="me">Tanvir, K.</span>, Forbes, A., Grantham, K., &amp; Kasza, J. Additional crossovers in cluster randomised crossover trials do not always increase statistical power.</h4>
-            <p class="journal"><em>Clinical Trials</em> · SAGE · 2026</p>
-          </a>
-        </article>
-
-        <article class="pub" data-year="2026">
-          <a class="card" href="https://doi.org/10.1371/journal.pone.0328745" target="_blank" rel="noopener">
-            <span class="tag">PLOS ONE</span>
-            <h4>Hossain, M.M., <span class="me">Tanvir, K.</span>, et al. Lifestyle and environmental risk factors associated with cancer: a case control study in Bangladesh.</h4>
-            <p class="journal"><em>PLOS ONE</em> · 2026</p>
-          </a>
-        </article>
-      </div>
+      <h3 class="year-head reveal">2026</h3>
+      <article class="pub reveal">
+        <a class="pub-card" href="https://doi.org/10.1177/17407745261431140" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
+          <h4 class="pub-title">Additional crossovers in cluster randomised crossover trials do not always increase statistical power</h4>
+          <p class="pub-authors"><span class="me">Tanvir, K.</span>, Forbes, A., Grantham, K., and Kasza, J. (2026).</p>
+          <p class="pub-journal">Clinical Trials</p>
+        </a>
+      </article>
+      <article class="pub reveal">
+        <a class="pub-card" href="https://doi.org/10.1371/journal.pone.0328745" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
+          <h4 class="pub-title">Lifestyle and environmental risk factors associated with cancer: A case-control study in Bangladesh</h4>
+          <p class="pub-authors">Rahman, M. L., <span class="me">Tanvir, K.</span>, Rahman, F., Chowdhury, S., Saha, S., Khan, M. A. S., Iktidar, M. A., Hasan, M., Tuli, S. N., Akter, S., et al. (2026).</p>
+          <p class="pub-journal">PLoS One</p>
+        </a>
+      </article>
 
       <!-- 2025 -->
-      <div class="pub-year-group reveal">
-        <h3 class="year-head">2025</h3>
-
-        <article class="pub" data-year="2025">
-          <a class="card" href="https://doi.org/10.1038/s41598-025-96275-1" target="_blank" rel="noopener">
-            <span class="tag">Scientific Reports</span>
-            <h4>Rahman, Q.S., <span class="me">Tanvir, K.</span>, Hoque, D.M.E., et al. Testing a reusable chemical warming pad and insulating jacket for hypothermia in preterm and low birthweight neonates.</h4>
-            <p class="journal"><em>Scientific Reports</em> · Nature · 2025</p>
-          </a>
-        </article>
-      </div>
+      <h3 class="year-head reveal">2025</h3>
+      <article class="pub reveal">
+        <a class="pub-card" href="https://doi.org/10.1038/s41598-025-96275-1" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
+          <h4 class="pub-title">Testing of a reusable chemical warming pad and an insulating jacket to manage hypothermia of preterm or low birthweight neonates</h4>
+          <p class="pub-authors">Ahmed, A., Rahman, F., Islam, M., Patwary, H., <span class="me">Tanvir, K.</span>, Ahmed, S., Hussam, A., Islam, M., and Rahman, A. E. (2025).</p>
+          <p class="pub-journal">Scientific Reports</p>
+        </a>
+      </article>
+      <article class="pub reveal">
+        <a class="pub-card" href="https://doi.org/10.1371/journal.pone.0315626" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
+          <h4 class="pub-title">Impact of COVID-19 on the utilisation of in-patient and out-patient healthcare services in Bangladesh: analysis of routine healthcare system data</h4>
+          <p class="pub-authors">Manna, R. M., Usmani, N. G., Ara, T., Rahman, M. H., <span class="me">Tanvir, K.</span>, Haider, M. S., Akter, E., Shomik, M. S., and Hossain, A. T. (2024).</p>
+          <p class="pub-journal">PLOS ONE</p>
+        </a>
+      </article>
 
       <!-- 2024 -->
-      <div class="pub-year-group reveal">
-        <h3 class="year-head">2024</h3>
-
-        <article class="pub" data-year="2024">
-          <a class="card" href="https://doi.org/10.7189/jogh.14.04086" target="_blank" rel="noopener">
-            <span class="tag">Journal of Global Health</span>
-            <h4>Ameen, S., Shafiq, S.S., <span class="me">Tanvir, K.</span>, et al. Introducing a standardised register for strengthening inpatient management of newborns and sick children in Bangladesh.</h4>
-            <p class="journal"><em>Journal of Global Health</em> · 2024</p>
-          </a>
-        </article>
-
-        <article class="pub" data-year="2024">
-          <a class="card" href="https://doi.org/10.1371/journal.pgph.0002971" target="_blank" rel="noopener">
-            <span class="tag">PLOS Global Public Health</span>
-            <h4>Ameen, S., Siddique, A.B., <span class="me">Tanvir, K.</span>, et al. Effect of COVID-19 on routine immunisation and maternal health services in Bangladesh: a division-level analysis.</h4>
-            <p class="journal"><em>PLOS Global Public Health</em> · 2024</p>
-          </a>
-        </article>
-      </div>
+      <h3 class="year-head reveal">2024</h3>
+      <article class="pub reveal">
+        <a class="pub-card" href="https://doi.org/10.7189/jogh.14.04086" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
+          <h4 class="pub-title">Introducing a standardised register for strengthening the inpatient management of newborns and sick children: Implementation research in selected health facilities of Bangladesh</h4>
+          <p class="pub-authors">Ameen, S., Shafiq, S. S., <span class="me">Tanvir, K.</span>, Saberin, A., Banik, G., Anm, E. K., Ashrafee, S., Saha, P. K., Amena, B., Alam, H. M. S., et al. (2024).</p>
+          <p class="pub-journal">Journal of Global Health</p>
+        </a>
+      </article>
+      <article class="pub reveal">
+        <a class="pub-card" href="https://doi.org/10.7189/jogh.14.05040" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
+          <h4 class="pub-title">Impact of COVID-19 on the utilisation of maternal health services in Bangladesh: A division-level analysis</h4>
+          <p class="pub-authors">Hossain, A. T., Akter, E., Manna, R. M., Ara, T., Hossain, M. A., <span class="me">Tanvir, K.</span>, Rahman, M. H., Sayeed, A., Siddique, A. B., Ahamed, B., et al. (2024).</p>
+          <p class="pub-journal">Journal of Global Health</p>
+        </a>
+      </article>
+      <article class="pub reveal">
+        <a class="pub-card" href="https://doi.org/10.1016/j.srhc.2024.100973" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
+          <h4 class="pub-title">Factors influencing delivery-related complications and their consequences in hard-to-reach areas of Bangladesh</h4>
+          <p class="pub-authors">Ahmed, A., Akter, E., Sayeed, A., Rahman, F., Hanson, M., Saha, N., Sajib, M. R. U. Z., Hossain, L., <span class="me">Tanvir, K.</span>, Hossain, A. T., et al. (2024).</p>
+          <p class="pub-journal">Sexual &amp; Reproductive Healthcare</p>
+        </a>
+      </article>
+      <article class="pub reveal">
+        <a class="pub-card" href="https://doi.org/10.7189/jogh.14.05028" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
+          <h4 class="pub-title">Unveiling the dimension of regional disparities: assessing the disruption of immunisation services by COVID-19 in Bangladesh</h4>
+          <p class="pub-authors">Akter, E., Sayeed, A., Siddique, A. B., Ahmed, B., Manna, R. M., Hossain, L., <span class="me">Tanvir, K.</span>, Khan, M. A. I., Rahman, M. H., Chowdhury, S., et al. (2024).</p>
+          <p class="pub-journal">Journal of Global Health</p>
+        </a>
+      </article>
+      <article class="pub reveal">
+        <a class="pub-card" href="https://doi.org/10.2196/54710" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
+          <h4 class="pub-title">Implications of big data analytics, artificial intelligence, machine learning, and deep learning in the healthcare system of Bangladesh: A scoping review</h4>
+          <p class="pub-authors">Alam, M. A., Sajib, M. R., Rahman, F., Tahura, S. E., Molly, H., Shuvo, A. S., Akter, E., Nusrat, N., Islam, T. T., Raza, S., <span class="me">Tanvir, K.</span>, et al. (2024).</p>
+          <p class="pub-journal">Journal of Medical Internet Research</p>
+        </a>
+      </article>
 
       <!-- 2023 -->
-      <div class="pub-year-group reveal">
-        <h3 class="year-head">2023</h3>
-
-        <article class="pub" data-year="2023">
-          <a class="card" href="https://doi.org/10.1371/journal.pone.0286193" target="_blank" rel="noopener">
-            <span class="tag">PLOS ONE</span>
-            <h4>Shafiq, S.S., Ameen, S., <span class="me">Tanvir, K.</span>, et al. Health workers' perceptions of care for small and sick newborns in Bangladesh: a qualitative study.</h4>
-            <p class="journal"><em>PLOS ONE</em> · 2023</p>
-          </a>
-        </article>
-
-        <article class="pub" data-year="2023">
-          <a class="card" href="https://doi.org/10.1186/s12978-023-01637-5" target="_blank" rel="noopener">
-            <span class="tag">Reproductive Health</span>
-            <h4><span class="me">Tanvir, K.</span>, Rahman, S., et al. Delivery related risk factors and maternal complications among women in Bangladesh.</h4>
-            <p class="journal"><em>Reproductive Health</em> · BMC · 2023</p>
-          </a>
-        </article>
-      </div>
-
-      <!-- 2022 -->
-      <div class="pub-year-group reveal">
-        <h3 class="year-head">2022</h3>
-
-        <article class="pub" data-year="2022">
-          <a class="card" href="https://doi.org/10.7189/jogh.12.04077" target="_blank" rel="noopener">
-            <span class="tag">Journal of Global Health</span>
-            <h4>Ameen, S., <span class="me">Tanvir, K.</span>, Siddique, A.B., et al. Coverage of essential newborn care and related inpatient service use in Bangladesh.</h4>
-            <p class="journal"><em>Journal of Global Health</em> · 2022</p>
-          </a>
-        </article>
-
-        <article class="pub" data-year="2022">
-          <a class="card" href="https://doi.org/10.1111/tmi.13774" target="_blank" rel="noopener">
-            <span class="tag">Tropical Medicine &amp; International Health</span>
-            <h4><span class="me">Tanvir, K.</span>, Hasan, M., et al. Maternal healthcare utilisation and associated factors in rural Bangladesh.</h4>
-            <p class="journal"><em>Tropical Medicine &amp; International Health</em> · Wiley · 2022</p>
-          </a>
-        </article>
-      </div>
+      <h3 class="year-head reveal">2023</h3>
+      <article class="pub reveal">
+        <a class="pub-card" href="https://doi.org/10.1186/s12913-023-09464-x" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
+          <h4 class="pub-title">Insomnia and job stressors among healthcare workers who served COVID-19 patients in Bangladesh</h4>
+          <p class="pub-authors">Rahman, F., Dalal, K., Hasan, M., Islam, T., Tuli, S. N., Akter, A., <span class="me">Tanvir, K.</span>, Islam, K., Rahman, A., Nabi, M. H., et al. (2023).</p>
+          <p class="pub-journal">BMC Health Services Research</p>
+        </a>
+      </article>
 
       <!-- 2021 -->
-      <div class="pub-year-group reveal">
-        <h3 class="year-head">2021</h3>
-
-        <article class="pub" data-year="2021">
-          <a class="card" href="https://doi.org/10.1371/journal.pone.0257782" target="_blank" rel="noopener">
-            <span class="tag">PLOS ONE</span>
-            <h4><span class="me">Tanvir, K.</span>, Islam, M.R., et al. Determinants of antenatal care utilisation among women in Bangladesh: evidence from national survey data.</h4>
-            <p class="journal"><em>PLOS ONE</em> · 2021</p>
-          </a>
-        </article>
-
-        <article class="pub" data-year="2021">
-          <a class="card" href="https://doi.org/10.1186/s12884-021-04206-5" target="_blank" rel="noopener">
-            <span class="tag">BMC Pregnancy and Childbirth</span>
-            <h4>Rahman, S., <span class="me">Tanvir, K.</span>, et al. Predictors of institutional delivery among women in Bangladesh: a multilevel analysis.</h4>
-            <p class="journal"><em>BMC Pregnancy and Childbirth</em> · 2021</p>
-          </a>
-        </article>
-      </div>
-
-      <p id="pub-empty" style="display:none;color:var(--text-muted);margin-top:8px">No publications match your filters.</p>
+      <h3 class="year-head reveal">2021</h3>
+      <article class="pub reveal">
+        <a class="pub-card" href="https://doi.org/10.3329/dujs.v69i2.56487" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
+          <h4 class="pub-title">Pregnancy complications in women with PCOS: A meta-analysis</h4>
+          <p class="pub-authors"><span class="me">Tanvir, K.</span>, and Rahman, M. L. (2021).</p>
+          <p class="pub-journal">The Dhaka University Journal of Science</p>
+        </a>
+      </article>
     </div>
   </section>
 

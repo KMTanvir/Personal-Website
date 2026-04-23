@@ -65,30 +65,77 @@
     }
     .chapter-card:hover .ch-eyebrow { color: var(--primary); opacity: .9; }
 
-    /* Interactive Content callout */
-    .interactive-row {
-      display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
-      margin-top: 18px; padding: 14px 16px;
-      border-radius: 12px;
-      border: 1px dashed var(--border);
-      background: var(--bg-muted);
-    }
-    .interactive-row .ir-label {
-      font: 600 .82rem var(--font-sans);
+    /* Interactive Content — highlighted, fully clickable */
+    .interactive-box {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+      margin-top: 20px; padding: 18px 20px;
+      border-radius: 14px;
       color: var(--text);
-      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--primary-50), var(--bg-elev));
+      border: 1.5px solid var(--primary);
+      box-shadow: 0 6px 20px rgba(15, 108, 125, .10);
+      position: relative; overflow: hidden;
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
     }
-    .interactive-row .ir-label svg { width: 16px; height: 16px; color: var(--primary); }
-    .interactive-row .btn { margin-left: auto; }
+    .interactive-box::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(420px circle at var(--mx, 20%) 50%, rgba(15,108,125,.10), transparent 60%);
+      opacity: 0; transition: opacity .25s var(--ease);
+      pointer-events: none;
+    }
+    .interactive-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(15, 108, 125, .18);
+      background: linear-gradient(135deg, var(--primary-50), var(--primary-50));
+    }
+    .interactive-box:hover::before { opacity: 1; }
+    .interactive-box .ir-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 6px 14px rgba(15, 108, 125, .25);
+    }
+    .interactive-box .ir-icon svg { width: 20px; height: 20px; }
+    .interactive-box .ir-text { display: grid; gap: 2px; min-width: 0; flex: 1; }
+    .interactive-box .ir-eyebrow {
+      font: 700 .92rem var(--font-sans);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+    .interactive-box .ir-cta {
+      margin-left: auto;
+      display: inline-flex; align-items: center; gap: 6px;
+      font: 600 .9rem var(--font-sans);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--bg);
+      transition: background .18s var(--ease), color .18s var(--ease);
+    }
+    .interactive-box:hover .ir-cta { background: var(--primary); color: #fff; }
+    .interactive-box .ir-cta svg { width: 14px; height: 14px; transition: transform .18s var(--ease); }
+    .interactive-box:hover .ir-cta svg { transform: translateX(3px); }
+    @media (max-width: 640px) {
+      .interactive-box { padding: 16px; }
+      .interactive-box .ir-cta { margin-left: 0; }
+    }
 
-    /* Batch gallery */
+    /* Batch gallery — 2 per row, scaled down */
     .batch-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 880px;
+      margin: 0 auto;
     }
+    @media (max-width: 640px) { .batch-grid { grid-template-columns: 1fr; } }
     .batch-card {
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
       border: 1px solid var(--border);
       background: var(--bg);
@@ -96,13 +143,14 @@
     }
     .batch-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,.08); }
     .batch-card img {
-      display: block; width: 100%; height: 220px; object-fit: cover; background: var(--bg-muted);
+      display: block; width: 100%; height: auto;
+      object-fit: contain; background: var(--bg-muted);
     }
-    .batch-card .bc-body { padding: 14px 16px 16px; }
+    .batch-card .bc-body { padding: 12px 16px 14px; }
     .batch-card h4 {
-      margin: 0 0 4px; font-family: var(--font-serif); font-size: 1.1rem;
+      margin: 0 0 2px; font-family: var(--font-serif); font-size: 1.02rem;
     }
-    .batch-card p { margin: 0; color: var(--text-muted); font-size: .88rem; }
+    .batch-card p { margin: 0; color: var(--text-muted); font-size: .84rem; }
   </style>
 </head>
 <body>
@@ -125,9 +173,6 @@
         </ul>
       </nav>
       <div class="nav-tools">
-        <button class="icon-btn" data-search-open aria-label="Search" title="Search (Ctrl/Cmd + K)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-        </button>
         <button class="mode-toggle" data-theme-toggle aria-label="Toggle theme" aria-pressed="false" title="Toggle theme">
           <span class="mode-label-dark">Dark Mode</span>
           <span class="mode-label-light" style="display:none">Light Mode</span>
@@ -160,20 +205,6 @@
     </nav>
   </aside>
 
-  <!-- Search overlay -->
-  <div class="search-overlay" role="dialog" aria-modal="true" aria-label="Site search">
-    <div class="search-panel">
-      <div class="search-head">
-        <input type="search" class="search-input" placeholder="Search the site…" aria-label="Search the site">
-        <button class="icon-btn" data-search-close aria-label="Close search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-        </button>
-      </div>
-      <div class="search-results" role="listbox" aria-label="Search results"></div>
-      <div class="search-hint">Tip: press <kbd>Esc</kbd> to close · <kbd>Ctrl/Cmd</kbd> + <kbd>K</kbd> to open</div>
-    </div>
-  </div>
-
   <!-- Currently teaching -->
   <section id="current" style="padding-top:clamp(72px,9vw,120px)">
     <div class="container">
@@ -183,43 +214,6 @@
       </div>
 
       <div class="grid" style="gap:24px">
-
-        <!-- Econometric Methods -->
-        <article class="course reveal">
-          <h3>Econometric Methods</h3>
-
-          <div class="course-section">
-            <h4>Syllabus &amp; textbook</h4>
-            <div class="chapter-grid">
-              <a class="chapter-card" href="https://drive.google.com/file/d/120X4_3IkSjN1gNt6cGUo02unjHfIPzIY/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Document</span><span class="ch-title">Course outline</span></a>
-              <a class="chapter-card" href="https://drive.google.com/file/d/1bDvkg4vErWuusEqCUyM_oE3RmLRz7Ry9/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Reading</span><span class="ch-title">Textbook</span></a>
-              <a class="chapter-card" href="https://drive.google.com/file/d/15vtN4SzkAZmRxlCIL2-XYOonpIIxHq66/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Reading</span><span class="ch-title">Solutions manual</span></a>
-              <a class="chapter-card" href="https://drive.google.com/file/d/1-BrUgTyLnN5XRHhI0G4s7Ua0kHf_TrZh/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Note</span><span class="ch-title">Motivation</span></a>
-            </div>
-          </div>
-
-          <div class="course-section">
-            <h4>Chapters</h4>
-            <div class="chapter-grid">
-              <a class="chapter-card" href="https://drive.google.com/file/d/1h1kOMATpq5udG50CjDzcnJFiGF0sZgp0/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 13</span><span class="ch-title">Lecture notes</span></a>
-              <a class="chapter-card" href="https://drive.google.com/file/d/1lnL9ERzq2IxCS9CuJflAfdPCB4VXzMI0/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 15</span><span class="ch-title">Lecture notes</span></a>
-              <a class="chapter-card" href="https://drive.google.com/file/d/1mGzApfmYtH5WFl4vHb1QE6MBqGgIOPqD/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 16</span><span class="ch-title">Lecture notes</span></a>
-              <a class="chapter-card" href="https://drive.google.com/file/d/1TyHPmGLya09n7QRCkZtCHcfC7OgSyXF6/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 17</span><span class="ch-title">Lecture notes</span></a>
-              <a class="chapter-card" href="https://drive.google.com/file/d/1DcychWQIcfK0as5nw0PlXIlBzyjUw6E6/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 18</span><span class="ch-title">Lecture notes</span></a>
-              <a class="chapter-card" href="https://drive.google.com/file/d/1wgdjCmfxpSTJMrdYDhYvQy1OXq4EkW9L/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 19</span><span class="ch-title">Lecture notes</span></a>
-              <a class="chapter-card" href="https://drive.google.com/file/d/1bPIY8mXgQFmYvVlEqwZFSoV-lOPKX_Rv/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 20</span><span class="ch-title">Lecture notes</span></a>
-              <a class="chapter-card" href="https://drive.google.com/file/d/1zmGuD07e1sqZ03g9rtZySk2BbX4FB5ED/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 22</span><span class="ch-title">Lecture notes</span></a>
-            </div>
-          </div>
-
-          <div class="interactive-row">
-            <span class="ir-label">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H4z"/><path d="M8 19h8M12 15v4"/></svg>
-              Interactive Content
-            </span>
-            <a class="btn btn-outline" href="#" aria-label="Open interactive content for Econometric Methods">Open</a>
-          </div>
-        </article>
 
         <!-- SQL for Data Science -->
         <article class="course reveal">
@@ -247,12 +241,45 @@
             </div>
           </div>
 
-          <div class="interactive-row">
-            <span class="ir-label">
+          <a class="interactive-box" href="https://kmtanvir.github.io/SQL-Course/" target="_blank" rel="noopener" aria-label="Open interactive content for SQL for Data Science">
+            <span class="ir-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H4z"/><path d="M8 19h8M12 15v4"/></svg>
-              Interactive Content
             </span>
-            <a class="btn btn-outline" href="#" aria-label="Open interactive content for SQL for Data Science">Open</a>
+            <span class="ir-text">
+              <span class="ir-eyebrow">Interactive Content</span>
+            </span>
+            <span class="ir-cta">Launch
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        </article>
+
+        <!-- Econometric Methods -->
+        <article class="course reveal">
+          <h3>Econometric Methods</h3>
+
+          <div class="course-section">
+            <h4>Syllabus &amp; textbook</h4>
+            <div class="chapter-grid">
+              <a class="chapter-card" href="https://drive.google.com/file/d/120X4_3IkSjN1gNt6cGUo02unjHfIPzIY/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Document</span><span class="ch-title">Course outline</span></a>
+              <a class="chapter-card" href="https://drive.google.com/file/d/1bDvkg4vErWuusEqCUyM_oE3RmLRz7Ry9/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Reading</span><span class="ch-title">Textbook</span></a>
+              <a class="chapter-card" href="https://drive.google.com/file/d/15vtN4SzkAZmRxlCIL2-XYOonpIIxHq66/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Reading</span><span class="ch-title">Solutions manual</span></a>
+              <a class="chapter-card" href="https://drive.google.com/file/d/1-BrUgTyLnN5XRHhI0G4s7Ua0kHf_TrZh/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Note</span><span class="ch-title">Motivation</span></a>
+            </div>
+          </div>
+
+          <div class="course-section">
+            <h4>Chapters</h4>
+            <div class="chapter-grid">
+              <a class="chapter-card" href="https://drive.google.com/file/d/1h1kOMATpq5udG50CjDzcnJFiGF0sZgp0/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 13</span><span class="ch-title">Lecture notes</span></a>
+              <a class="chapter-card" href="https://drive.google.com/file/d/1lnL9ERzq2IxCS9CuJflAfdPCB4VXzMI0/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 15</span><span class="ch-title">Lecture notes</span></a>
+              <a class="chapter-card" href="https://drive.google.com/file/d/1mGzApfmYtH5WFl4vHb1QE6MBqGgIOPqD/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 16</span><span class="ch-title">Lecture notes</span></a>
+              <a class="chapter-card" href="https://drive.google.com/file/d/1TyHPmGLya09n7QRCkZtCHcfC7OgSyXF6/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 17</span><span class="ch-title">Lecture notes</span></a>
+              <a class="chapter-card" href="https://drive.google.com/file/d/1DcychWQIcfK0as5nw0PlXIlBzyjUw6E6/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 18</span><span class="ch-title">Lecture notes</span></a>
+              <a class="chapter-card" href="https://drive.google.com/file/d/1wgdjCmfxpSTJMrdYDhYvQy1OXq4EkW9L/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 19</span><span class="ch-title">Lecture notes</span></a>
+              <a class="chapter-card" href="https://drive.google.com/file/d/1bPIY8mXgQFmYvVlEqwZFSoV-lOPKX_Rv/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 20</span><span class="ch-title">Lecture notes</span></a>
+              <a class="chapter-card" href="https://drive.google.com/file/d/1zmGuD07e1sqZ03g9rtZySk2BbX4FB5ED/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 22</span><span class="ch-title">Lecture notes</span></a>
+            </div>
           </div>
         </article>
 
@@ -288,14 +315,6 @@
               <a class="chapter-card" href="https://drive.google.com/file/d/1njln2XHf6nGujIPbPlS2NcZffO1I6N5R/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 2</span><span class="ch-title">Randomised complete block</span></a>
               <a class="chapter-card" href="https://drive.google.com/file/d/17rmqxMudbtvuwWbR1uXHA7R_z-gprmQi/view?usp=sharing" target="_blank" rel="noopener"><span class="ch-eyebrow">Chapter 3</span><span class="ch-title">Latin square design</span></a>
             </div>
-          </div>
-
-          <div class="interactive-row">
-            <span class="ir-label">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H4z"/><path d="M8 19h8M12 15v4"/></svg>
-              Interactive Content
-            </span>
-            <a class="btn btn-outline" href="#" aria-label="Open interactive content for Statistical Computing I">Open</a>
           </div>
         </article>
 
@@ -352,13 +371,6 @@
             </div>
           </div>
 
-          <div class="interactive-row">
-            <span class="ir-label">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H4z"/><path d="M8 19h8M12 15v4"/></svg>
-              Interactive Content
-            </span>
-            <a class="btn btn-outline" href="#" aria-label="Open interactive content for Industrial Statistics and Operations Research">Open</a>
-          </div>
         </article>
 
       </div>

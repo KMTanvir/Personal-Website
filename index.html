@@ -31,13 +31,24 @@
         </ul>
       </nav>
       <div class="nav-tools">
-        <button class="icon-btn" data-search-open aria-label="Search" title="Search (Ctrl/Cmd + K)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-        </button>
         <button class="mode-toggle" data-theme-toggle aria-label="Toggle theme" aria-pressed="false" title="Toggle theme">
           <span class="mode-label-dark">Dark Mode</span>
           <span class="mode-label-light" style="display:none">Light Mode</span>
         </button>
+        <button class="icon-btn menu-btn" data-drawer-open aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <aside class="drawer" aria-hidden="true">
+    <div class="drawer-top">
+      <span class="brand"><span class="brand-mark">KMT</span> K.M. Tanvir</span>
+      <button class="icon-btn" data-drawer-close aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
     <nav aria-label="Mobile">
       <ul>
@@ -50,7 +61,7 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-  </div>
+  </aside>
 
   <!-- Hero -->
   <section class="hero">
@@ -90,9 +101,8 @@
     <div class="container">
       <div class="reveal" style="max-width:64ch">
         <span class="eyebrow">Research Focus</span>
-        <p class="section-lead" style="margin-bottom:2.2rem">Statistics in service of health and policy, from trial design to data driven analysis.</p>
       </div>
-      <div class="grid cols-3">
+      <div class="grid cols-3" style="margin-top:20px">
         <article class="card reveal">
           <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
           <span class="tag">Biostatistics</span>
@@ -115,40 +125,39 @@
     </div>
   </section>
 
-  <!-- Selected publications preview -->
+  <!-- Recent publications preview -->
   <section id="pubs-preview">
     <div class="container">
       <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;">
         <div style="max-width:58ch">
-          <span class="eyebrow">Selected Publications</span>
-          <p class="section-lead" style="margin-bottom:0">Peer reviewed research in biostatistics, clinical trials, and global health.</p>
+          <span class="eyebrow">Recent Publications</span>
         </div>
-        <a class="btn btn-outline" href="publications.html">See all publications</a>
+        <a class="btn btn-outline" href="research.html#publications">See all publications</a>
       </div>
       <div class="grid cols-2" style="margin-top:28px">
         <a class="card reveal" href="https://doi.org/10.1177/17407745261431140" target="_blank" rel="noopener">
           <span class="tag">2026 · Clinical Trials</span>
           <h3>Additional crossovers in cluster randomised crossover trials do not always increase statistical power</h3>
-          <p><span class="me">Tanvir, K.</span>, Forbes, A., Grantham, K., &amp; Kasza, J.</p>
+          <p><span class="me">Tanvir, K.</span>, Forbes, A., Grantham, K., and Kasza, J.</p>
           <p class="journal">Clinical Trials</p>
+        </a>
+        <a class="card reveal" href="https://doi.org/10.1371/journal.pone.0328745" target="_blank" rel="noopener">
+          <span class="tag">2026 · PLoS One</span>
+          <h3>Lifestyle and environmental risk factors associated with cancer: A case-control study in Bangladesh</h3>
+          <p>Rahman, M. L., <span class="me">Tanvir, K.</span>, Rahman, F., Chowdhury, S., Saha, S., Khan, M. A. S., Iktidar, M. A., Hasan, M., Tuli, S. N., Akter, S., et al.</p>
+          <p class="journal">PLoS One</p>
         </a>
         <a class="card reveal" href="https://doi.org/10.1038/s41598-025-96275-1" target="_blank" rel="noopener">
           <span class="tag">2025 · Scientific Reports</span>
-          <h3>Testing a reusable chemical warming pad and insulating jacket for hypothermia in preterm and low birthweight neonates</h3>
-          <p>Ahmed, A., Rahman, F., Islam, M., Patwary, H., <span class="me">Tanvir, K.</span>, et al.</p>
+          <h3>Testing of a reusable chemical warming pad and an insulating jacket to manage hypothermia of preterm or low birthweight neonates</h3>
+          <p>Ahmed, A., Rahman, F., Islam, M., Patwary, H., <span class="me">Tanvir, K.</span>, Ahmed, S., Hussam, A., Islam, M., and Rahman, A. E.</p>
           <p class="journal">Scientific Reports</p>
         </a>
         <a class="card reveal" href="https://doi.org/10.7189/jogh.14.04086" target="_blank" rel="noopener">
           <span class="tag">2024 · Journal of Global Health</span>
-          <h3>Introducing a standardised register for strengthening inpatient management of newborns and sick children in Bangladesh</h3>
-          <p>Ameen, S., Shafiq, S.S., <span class="me">Tanvir, K.</span>, Saberin, A., Banik, G., et al.</p>
+          <h3>Introducing a standardised register for strengthening the inpatient management of newborns and sick children: Implementation research in selected health facilities of Bangladesh</h3>
+          <p>Ameen, S., Shafiq, S. S., <span class="me">Tanvir, K.</span>, Saberin, A., Banik, G., Anm, E. K., Ashrafee, S., Saha, P. K., Amena, B., Alam, H. M. S., et al.</p>
           <p class="journal">Journal of Global Health</p>
-        </a>
-        <a class="card reveal" href="https://doi.org/10.1371/journal.pone.0328745" target="_blank" rel="noopener">
-          <span class="tag">2024 · PLOS ONE</span>
-          <h3>Lifestyle and environmental risk factors associated with cancer: a case control study in Bangladesh</h3>
-          <p>Rahman, M.L., <span class="me">Tanvir, K.</span>, Rahman, F., Chowdhury, S., et al.</p>
-          <p class="journal">PLOS ONE</p>
         </a>
       </div>
     </div>

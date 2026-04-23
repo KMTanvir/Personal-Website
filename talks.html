@@ -54,6 +54,46 @@
       text-align: center;
       min-height: 72px;
     }
+
+    /* Talks photo gallery */
+    .gallery-group { margin-top: 28px; }
+    .gallery-group:first-of-type { margin-top: 8px; }
+    .gallery-head {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+    .gallery-head .gallery-place {
+      color: var(--text-soft);
+      font-size: .95rem;
+      font-weight: 400;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (min-width: 860px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid.cols-1 { grid-template-columns: 1fr; max-width: 640px; }
+    }
+    @media (max-width: 540px) { .gallery-grid { grid-template-columns: 1fr; } }
+    .gallery-item {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-muted);
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+    }
+    .gallery-item:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.08); }
+    .gallery-item img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
@@ -76,9 +116,6 @@
         </ul>
       </nav>
       <div class="nav-tools">
-        <button class="icon-btn" data-search-open aria-label="Search" title="Search (Ctrl/Cmd + K)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-        </button>
         <button class="mode-toggle" data-theme-toggle aria-label="Toggle theme" aria-pressed="false" title="Toggle theme">
           <span class="mode-label-dark">Dark Mode</span>
           <span class="mode-label-light" style="display:none">Light Mode</span>
@@ -111,20 +148,6 @@
     </nav>
   </aside>
 
-  <!-- Search overlay -->
-  <div class="search-overlay" role="dialog" aria-modal="true" aria-label="Site search">
-    <div class="search-panel">
-      <div class="search-head">
-        <input type="search" class="search-input" placeholder="Search the site…" aria-label="Search the site">
-        <button class="icon-btn" data-search-close aria-label="Close search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-        </button>
-      </div>
-      <div class="search-results" role="listbox" aria-label="Search results"></div>
-      <div class="search-hint">Tip: press <kbd>Esc</kbd> to close · <kbd>Ctrl/Cmd</kbd> + <kbd>K</kbd> to open</div>
-    </div>
-  </div>
-
   <!-- Talks list -->
   <section id="talks" style="padding-top:clamp(72px,9vw,120px)">
     <div class="container">
@@ -141,7 +164,6 @@
             <h3>Modern Data Visualization Techniques</h3>
             <div class="talk-venue">Shahjalal University of Science and Technology</div>
             <div class="talk-city">Sylhet, Bangladesh</div>
-            <p style="color:var(--text-muted);margin:4px 0 0">Principles of effective visual communication, moving from default charts to publication ready graphics with ggplot2 and modern tidy workflows.</p>
           </div>
         </article>
 
@@ -151,7 +173,6 @@
             <h3>Advanced Statistical Tools for Data Analysis</h3>
             <div class="talk-venue">Asian University for Women</div>
             <div class="talk-city">Chattogram, Bangladesh</div>
-            <p style="color:var(--text-muted);margin:4px 0 0">Selecting appropriate methods for real datasets, with worked examples in regression diagnostics, categorical analysis, and reporting uncertainty.</p>
           </div>
         </article>
 
@@ -161,7 +182,6 @@
             <h3>Advanced Sampling Techniques</h3>
             <div class="talk-venue">Jahangirnagar University</div>
             <div class="talk-city">Savar, Bangladesh</div>
-            <p style="color:var(--text-muted);margin:4px 0 0">Stratified, cluster, and multi stage sampling in practice. How survey design choices propagate into variance estimates and policy relevant conclusions.</p>
           </div>
         </article>
 
@@ -171,7 +191,6 @@
             <h3>Data Analysis using R and Stata</h3>
             <div class="talk-venue">International Centre for Diarrhoeal Disease Research, Bangladesh (icddr,b)</div>
             <div class="talk-city">Dhaka, Bangladesh</div>
-            <p style="color:var(--text-muted);margin:4px 0 0">A side by side, hands on session for health researchers: cleaning routine data, running common models, and producing reproducible outputs in both R and Stata.</p>
           </div>
         </article>
 
@@ -181,7 +200,6 @@
             <h3>Developments in Generalized Linear Models</h3>
             <div class="talk-venue">Bangabandhu Sheikh Mujib Medical University</div>
             <div class="talk-city">Dhaka, Bangladesh</div>
-            <p style="color:var(--text-muted);margin:4px 0 0">Recent developments and practical choices in GLMs for clinical and epidemiological data, including link function selection, overdispersion, and model checking.</p>
           </div>
         </article>
 
@@ -191,7 +209,6 @@
             <h3>Data Analysis using Python</h3>
             <div class="talk-venue">National Academy for Defence Administration (NADA)</div>
             <div class="talk-city">Mirpur, Dhaka, Bangladesh</div>
-            <p style="color:var(--text-muted);margin:4px 0 0">A practical introduction to Python for data analysis — NumPy, pandas, and visualisation — tailored for officers working with administrative and operational data.</p>
           </div>
         </article>
 
@@ -201,7 +218,6 @@
             <h3>Data Analysis using SPSS</h3>
             <div class="talk-venue">National Defence College (NDC)</div>
             <div class="talk-city">Mirpur, Dhaka, Bangladesh</div>
-            <p style="color:var(--text-muted);margin:4px 0 0">An applied workshop on SPSS for survey and policy data: descriptive summaries, cross tabulation, significance testing, and reproducible reporting for senior course participants.</p>
           </div>
         </article>
 
@@ -211,7 +227,6 @@
             <h3>Data Analysis using SPSS</h3>
             <div class="talk-venue">Bangladesh University of Professionals (BUP)</div>
             <div class="talk-city">Mirpur, Dhaka, Bangladesh</div>
-            <p style="color:var(--text-muted);margin:4px 0 0">A hands on SPSS session for graduate students and researchers, focused on turning raw survey responses into defensible, well presented findings.</p>
           </div>
         </article>
 
@@ -235,6 +250,56 @@
         <div class="venue-chip">National Academy for Defence Administration</div>
         <div class="venue-chip">National Defence College</div>
         <div class="venue-chip">Bangladesh University of Professionals</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo gallery -->
+  <section id="talk-gallery">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Moments from the road</span>
+        <h2 class="section-title">Photos from talks</h2>
+      </div>
+
+      <div class="gallery-group reveal">
+        <h3 class="gallery-head">Shahjalal University of Science and Technology <span class="gallery-place">· Sylhet</span></h3>
+        <div class="gallery-grid">
+          <figure class="gallery-item"><img src="assets/talks/sust1.jpg" alt="Talk at Shahjalal University of Science and Technology" loading="lazy"></figure>
+          <figure class="gallery-item"><img src="assets/talks/SUSt2.jpg" alt="Talk at Shahjalal University of Science and Technology" loading="lazy"></figure>
+        </div>
+      </div>
+
+      <div class="gallery-group reveal">
+        <h3 class="gallery-head">Asian University for Women <span class="gallery-place">· Chattogram</span></h3>
+        <div class="gallery-grid">
+          <figure class="gallery-item"><img src="assets/talks/AUW1.jpg" alt="Talk at Asian University for Women" loading="lazy"></figure>
+          <figure class="gallery-item"><img src="assets/talks/AUW2.jpg" alt="Talk at Asian University for Women" loading="lazy"></figure>
+        </div>
+      </div>
+
+      <div class="gallery-group reveal">
+        <h3 class="gallery-head">Jahangirnagar University <span class="gallery-place">· Savar</span></h3>
+        <div class="gallery-grid">
+          <figure class="gallery-item"><img src="assets/talks/JU1.jpg" alt="Talk at Jahangirnagar University" loading="lazy"></figure>
+          <figure class="gallery-item"><img src="assets/talks/JU2.jpg" alt="Talk at Jahangirnagar University" loading="lazy"></figure>
+        </div>
+      </div>
+
+      <div class="gallery-group reveal">
+        <h3 class="gallery-head">icddr,b <span class="gallery-place">· Dhaka</span></h3>
+        <div class="gallery-grid">
+          <figure class="gallery-item"><img src="assets/talks/icddrb1.jpg" alt="Talk at icddr,b" loading="lazy"></figure>
+          <figure class="gallery-item"><img src="assets/talks/icddrb2.jpg" alt="Talk at icddr,b" loading="lazy"></figure>
+        </div>
+      </div>
+
+      <div class="gallery-group reveal">
+        <h3 class="gallery-head">Bangabandhu Sheikh Mujib Medical University <span class="gallery-place">· Dhaka</span></h3>
+        <div class="gallery-grid">
+          <figure class="gallery-item"><img src="assets/talks/BMU1.jpg" alt="Talk at Bangabandhu Sheikh Mujib Medical University" loading="lazy"></figure>
+          <figure class="gallery-item"><img src="assets/talks/BMU2.jpg" alt="Talk at Bangabandhu Sheikh Mujib Medical University" loading="lazy"></figure>
+        </div>
       </div>
     </div>
   </section>
