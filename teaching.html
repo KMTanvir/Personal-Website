@@ -131,8 +131,24 @@
     .interactive-box .ir-cta svg { width: 14px; height: 14px; transition: transform .18s var(--ease); }
     .interactive-box:hover .ir-cta svg { transform: translateX(3px); }
     @media (max-width: 640px) {
-      .interactive-box { padding: 16px; }
-      .interactive-box .ir-cta { margin-left: 0; }
+      .interactive-box {
+        padding: 16px;
+        gap: 12px;
+      }
+      .interactive-box .ir-eyebrow {
+        font-size: .82rem;
+        letter-spacing: .12em;
+      }
+      .interactive-box .ir-text {
+        flex: 1 1 calc(100% - 56px);
+        min-width: 0;
+      }
+      .interactive-box .ir-cta {
+        margin-left: 0;
+        flex: 1 1 100%;
+        justify-content: center;
+        padding: 10px 16px;
+      }
     }
 
     /* Batch gallery — 2 per row, scaled down */
