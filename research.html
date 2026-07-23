@@ -64,6 +64,20 @@
       color: var(--primary);
       transform: translate(2px, -2px) translateY(-9px);
     }
+    .pub-card--pending { padding-right: 24px; cursor: default; }
+    .pub-card--pending::after { display: none; }
+    .pub-card--pending:hover { transform: none; border-color: var(--border); box-shadow: none; }
+    .pub-badge {
+      display: inline-block;
+      font: 600 .68rem var(--font-sans);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--primary-50);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
     .pub-title {
       font-family: var(--font-serif);
       font-size: 1.1rem;
@@ -182,7 +196,7 @@
       <div class="grid cols-2">
         <article class="card reveal" style="padding:28px">
           <span class="tag">Principal Investigator</span>
-          <h3 style="font-family:var(--font-serif);font-size:1.25rem">FertiMeter: a free of cost alternative to expensive diagnosis of Polycystic Ovarian Syndrome</h3>
+          <h3 style="font-family:var(--font-serif);font-size:1.25rem">FertiMeter: A Free-of-Cost Alternative to Expensive Diagnosis of Polycystic Ovarian Syndrome and Full-Time Tracking to Reduce Adverse Pregnancy Outcomes</h3>
           <p style="color:var(--text-muted)">Principal Investigator on a project developing FertiMeter, a mobile application for machine learning&ndash;based screening of PCOS (86.1% predictive accuracy), designed to support early identification and improve access to diagnostic pathways in resource-constrained settings.</p>
           <div style="margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);font-size:.9rem;color:var(--text-soft)">
             <span class="me">Donor:</span> Department of Foreign Affairs, Trade and Development, Canada (Global Affairs Canada)
@@ -191,7 +205,7 @@
 
         <article class="card reveal" style="padding:28px">
           <span class="tag">Co-Principal Investigator</span>
-          <h3 style="font-family:var(--font-serif);font-size:1.25rem">Awareness Assessment of Polycystic Ovary Syndrome among early reproductive aged women in Bangladesh</h3>
+          <h3 style="font-family:var(--font-serif);font-size:1.25rem">Awareness of Polycystic Ovary Syndrome (PCOS) among Early Reproductive-Aged Women in Bangladesh</h3>
           <p style="color:var(--text-muted)">Co-Principal Investigator on a nationally funded study examining awareness and perceptions of PCOS among young women in Bangladesh, identifying key determinants and informing targeted interventions to improve early recognition and care-seeking.</p>
           <div style="margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);font-size:.9rem;color:var(--text-soft)">
             <span class="me">Donor:</span> University Grants Commission (UGC), Bangladesh
@@ -212,6 +226,21 @@
 
       <!-- 2026 -->
       <h3 class="year-head reveal">2026</h3>
+      <article class="pub reveal">
+        <div class="pub-card pub-card--pending">
+          <span class="pub-badge">Accepted / In Press</span>
+          <h4 class="pub-title">Identifying Polycystic Ovary Syndrome Using Non-Clinical Symptoms: Evidence from a Comparative Study in Bangladesh</h4>
+          <p class="pub-authors"><span class="me">Tanvir, K.</span>, Hossain, S. S., Turin, H. M., Mahiuddin, M., Ara, T., Faiza, M., Islam, M., Sabbir, A., Biswas, R., Islam, T., Khan, T., Ether, S. T., Hossain, I. A., and Ahmed, A. (2026).</p>
+          <p class="pub-journal">Journal of Global Health</p>
+        </div>
+      </article>
+      <article class="pub reveal">
+        <a class="pub-card" href="https://doi.org/10.1109/ACCESS.2026.3710788" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
+          <h4 class="pub-title">FertiMeter: A Machine Learning-Based Mobile Application for Self-Screening of Polycystic Ovary Syndrome</h4>
+          <p class="pub-authors"><span class="me">Tanvir, K.</span>, Faiza, M., Hossain, S. S., Shahriyar, S. M., Islam, T., Chowdhury, M. E. H., Sabbir, A., Turin, H. M., Islam, M., Mahiuddin, M., Akter, T., Biswas, R., Ameen, S., Ether, S. T., and Ahmed, A. (2026).</p>
+          <p class="pub-journal">IEEE Access</p>
+        </a>
+      </article>
       <article class="pub reveal">
         <a class="pub-card" href="https://doi.org/10.1177/17407745261431140" target="_blank" rel="noopener" aria-label="Open publication on publisher's site">
           <h4 class="pub-title">Additional crossovers in cluster randomised crossover trials do not always increase statistical power</h4>
@@ -336,7 +365,7 @@
     <div class="container footer-inner">
       <div>
         <span class="brand" style="margin-bottom:10px"><span class="brand-mark">KMT</span> K.M. Tanvir</span>
-        <p style="max-width:48ch;margin-top:10px">Lecturer, Applied Statistics &amp; Data Science · Institute of Statistical Research and Training (ISRT), University of Dhaka.</p>
+        <p style="max-width:48ch;margin-top:10px">Lecturer, Applied Statistics &amp; Data Science · Institute of Applied Statistics and Data Science (IASDS), University of Dhaka.</p>
         <div class="social-row" aria-label="Social links">
           <a href="https://scholar.google.com/citations?user=BQIZmwIAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5zm0 2L3 11v5l9 5 9-5v-5l-9 5z"/></svg></a>
           <a href="https://orcid.org/0000-0002-6106-2905" target="_blank" rel="noopener" aria-label="ORCID"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 8v8M8 8a1 1 0 1 0 0-.001M13 8h2a4 4 0 0 1 0 8h-2V8z"/></svg></a>
@@ -358,7 +387,7 @@
       <div>
         <h4>Profiles</h4>
         <ul>
-          <li><a href="https://isrt.ac.bd/people/tanvir/" target="_blank" rel="noopener">ISRT profile</a></li>
+          <li><a href="https://isrt.ac.bd/people/tanvir/" target="_blank" rel="noopener">IASDS profile</a></li>
           <li><a href="https://www.du.ac.bd/faculty/faculty_details/ISR/63177" target="_blank" rel="noopener">University of Dhaka</a></li>
           <li><a href="https://scholar.google.com/citations?user=BQIZmwIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
           <li><a href="https://orcid.org/0000-0002-6106-2905" target="_blank" rel="noopener">ORCID</a></li>
